@@ -16,8 +16,16 @@ public class BulletController : MonoBehaviour
 
     
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         gun.Reload(this.gameObject);
+        if(other.gameObject.tag == "Enemy")
+        {
+            other.gameObject.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("Hit " + other.gameObject.name);
+        }
     }
 }
