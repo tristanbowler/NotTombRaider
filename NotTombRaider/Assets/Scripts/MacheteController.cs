@@ -43,9 +43,7 @@ public class MacheteController : MonoBehaviour
             else
             {
                 Vector3 rotation = this.transform.rotation.eulerAngles;
-                Debug.Log("Down: " + rotation);
                 float deltaX = 60 / (swingTime / 2) * Time.deltaTime;
-                Debug.Log("Delta: " + deltaX);
                 rotation = new Vector3(previous.x + deltaX, 0, 0);
                 previous = rotation;
                 
@@ -67,14 +65,8 @@ public class MacheteController : MonoBehaviour
             startTime = Time.time;
             upSwing = true;
             previous = startRotation.eulerAngles;
-            //StartCoroutine(SwingWait());
         }
     }
 
-    private IEnumerator SwingWait()
-    {
-        yield return new WaitForSeconds(swingTime + 0.1f);
-        
-        
-    }
+   
 }
