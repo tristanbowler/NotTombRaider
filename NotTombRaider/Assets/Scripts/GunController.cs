@@ -11,7 +11,6 @@ public class GunController : MonoBehaviour
     public int clipSize;
     public bool coolDown = false;
     public float bulletForce = 10;
-    public Vector3 playerForward;
     void Start()
     {
         for(int i = 0; i<clipSize; i++)
@@ -25,22 +24,21 @@ public class GunController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerForward = this.transform.parent.forward;
-        if (Input.GetKey(KeyCode.Space) && coolDown == false)
-        {
-            FireBullet();
-            coolDown = true;
-            StartCoroutine(CoolDownTimer());
-        }
+         
     }
 
     public void FireBullet()
     {
-        GameObject bullet = reload[0];
-        fired.Add(bullet);
-        reload.Remove(bullet);
-        bullet.SetActive(true);
-        bullet.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, bulletForce));
+        if (!coolDown)
+        {
+            coolDown = true;
+            StartCoroutine(CoolDownTimer());
+            GameObject bullet = reload[0];
+            fired.Add(bullet);
+            reload.Remove(bullet);
+            bullet.SetActive(true);
+            bullet.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, bulletForce));
+        }
     }
 
     public void Reload(GameObject bullet)
@@ -52,7 +50,7 @@ public class GunController : MonoBehaviour
         bullet.SetActive(false);
     }
 
-    private IEnumerator CoolDownTimer()
+    public IEnumerator CoolDownTimer()
     {
         yield return new WaitForSeconds(1);
         coolDown = false;

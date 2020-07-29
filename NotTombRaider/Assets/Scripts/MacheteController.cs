@@ -10,6 +10,10 @@ public class MacheteController : MonoBehaviour
     private bool upSwing = false;
     private float startTime;
     public Vector3 previous;
+    public float minX = 10;
+    public float maxX = 120;
+    public float minZ = -20;
+    public float maxZ = 20;
 
     // Start is called before the first frame update
     void Start()
@@ -22,40 +26,10 @@ public class MacheteController : MonoBehaviour
     {
         //move to (50, 0, 0, 0)
         //then to (110, 0, 0, 0)
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            Swing();
-        }
-        if (isSwinging)
-        {
-            if (upSwing)
-            {
-                Vector3 rotation = this.transform.rotation.eulerAngles;
-                float deltaX = 60 / (swingTime / 2) * Time.deltaTime;
-                rotation = new Vector3(previous.x - deltaX, 0, 0);
-                previous = rotation;
-                this.transform.rotation = Quaternion.Euler(rotation);
-                if(rotation.x <= 50)
-                {
-                    upSwing = false;
-                }
-            }
-            else
-            {
-                Vector3 rotation = this.transform.rotation.eulerAngles;
-                float deltaX = 60 / (swingTime / 2) * Time.deltaTime;
-                rotation = new Vector3(previous.x + deltaX, 0, 0);
-                previous = rotation;
-                
-                this.transform.rotation = Quaternion.Euler(rotation);
-                if(rotation.x >= 110)
-                {
-                    isSwinging = false;
-                    this.transform.rotation = startRotation;
-                }
-            }
-        }
+        
+        RotateMachete();
     }
+
 
     public void Swing()
     {
@@ -65,6 +39,41 @@ public class MacheteController : MonoBehaviour
             startTime = Time.time;
             upSwing = true;
             previous = startRotation.eulerAngles;
+        }
+    }
+
+    private void RotateMachete()
+    {
+        if (isSwinging)
+        {
+            if (upSwing)
+            {
+                Vector3 rotation = this.transform.rotation.eulerAngles;
+                float deltaX = (maxX - minX) / (3* swingTime / 4) * Time.deltaTime;
+                float deltaZ = (maxZ - minZ) / (3*swingTime / 4) * Time.deltaTime;
+                rotation = new Vector3(previous.x - deltaX, 0, 0);
+                previous = rotation;
+                this.transform.rotation = Quaternion.Euler(rotation);
+                if (rotation.x <= minX)
+                {
+                    upSwing = false;
+                }
+            }
+            else
+            {
+                Vector3 rotation = this.transform.rotation.eulerAngles;
+                float deltaX = (maxX - minX) / (swingTime / 4) * Time.deltaTime;
+                float deltaZ = (maxZ - minZ) / (swingTime / 4) * Time.deltaTime;
+                rotation = new Vector3(previous.x + deltaX, 0, 0);
+                previous = rotation;
+
+                this.transform.rotation = Quaternion.Euler(rotation);
+                if (rotation.x >= maxX)
+                {
+                    isSwinging = false;
+                    this.transform.rotation = startRotation;
+                }
+            }
         }
     }
 

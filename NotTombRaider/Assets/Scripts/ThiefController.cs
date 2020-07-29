@@ -13,6 +13,11 @@ public class ThiefController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Movement();
+    }
+
+    private void Movement()
+    {
         Vector3 movement = new Vector3(0, 0, 0);
         if (Input.GetKey(KeyCode.W))
         {

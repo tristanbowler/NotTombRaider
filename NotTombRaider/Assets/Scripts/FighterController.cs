@@ -6,6 +6,8 @@ public class FighterController : MonoBehaviour
 {
     // Start is called before the first frame update
     public float moveSpeed = 1;
+    public GunController gun;
+    public MacheteController machete;
     void Start()
     {
         
@@ -13,6 +15,28 @@ public class FighterController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        CheckMovement();
+        CheckGun();
+        CheckMachete();
+    }
+
+    private void CheckMachete()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            machete.Swing();
+        }
+    }
+
+    private void CheckGun()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            gun.FireBullet();
+        }
+    }
+    private void CheckMovement()
     {
         Vector3 movement = new Vector3(0, 0, 0);
         if (Input.GetKey(KeyCode.UpArrow))
