@@ -628,6 +628,7 @@ GameObject:
   - component: {fileID: 1044325490}
   - component: {fileID: 1044325489}
   - component: {fileID: 1044325492}
+  - component: {fileID: 1044325493}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -662,7 +663,7 @@ CapsuleCollider:
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1044325490
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -726,6 +727,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1044325493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044325487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c74d0bb36e027924a8cf2bd03f33a1b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  macheteController: {fileID: 426000750}
 --- !u!1 &1115779059
 GameObject:
   m_ObjectHideFlags: 0
