@@ -10,8 +10,6 @@ public class MacheteHitController : MonoBehaviour
     {
         if (macheteController.isSwinging)
         {
-
-
             if (other.gameObject.tag == "Enemy")
             {
                 other.gameObject.SetActive(false);
