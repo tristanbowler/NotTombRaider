@@ -1,17 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Room : MonoBehaviour
 {
     // Start is called before the first frame update
     public List<SpawnPoint> SpawnPoints;
     private RoomGenerationController controller;
+    public int spawnOrder = -1;
+    public TextMeshProUGUI orderLabel;
 
     private void Start()
     {
         controller = GameObject.FindGameObjectWithTag("RoomsController").GetComponent<RoomGenerationController>();
         //Invoke("SpawnAdjacents", 0.01f);
+    }
+
+    public void SetSpawnOrder(int order)
+    {
+        spawnOrder = order;
+        orderLabel.text = spawnOrder.ToString();
     }
 
     private void SpawnAdjacents()

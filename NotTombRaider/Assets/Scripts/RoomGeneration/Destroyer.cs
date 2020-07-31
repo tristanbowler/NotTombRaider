@@ -7,6 +7,10 @@ public class Destroyer : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(other.gameObject);
+        if (!other.CompareTag("ClosedRoom"))
+        {
+            Destroy(other.gameObject);
+        }
+        
     }
 }

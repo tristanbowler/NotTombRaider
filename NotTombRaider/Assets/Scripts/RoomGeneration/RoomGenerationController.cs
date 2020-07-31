@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RoomGenerationController : MonoBehaviour
 {
@@ -16,8 +17,32 @@ public class RoomGenerationController : MonoBehaviour
     public GameObject BottomSingle;
     public GameObject[] BottomRooms;
 
+    public int spawnOrder = 0;
+
     public int isLocked = 0;
 
     public List<GameObject> spawnedRooms = new List<GameObject>();
     public List<SpawnPoint> toSpawn = new List<SpawnPoint>();
+
+    public float waitTime = 0.1f;
+
+    public float startTime = 0;
+
+
+    private void Update()
+    {
+        if(toSpawn.Count > 0 && Time.time - startTime > waitTime)
+        {
+            toSpawn[0].SpawnRoom();
+            startTime = Time.time;
+        }
+        if(toSpawn.Count == 0 && Time.time > waitTime * NumberOfRooms)
+        {
+            if(spawnedRooms.Count != NumberOfRooms)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+              
+        }
+    }
 }

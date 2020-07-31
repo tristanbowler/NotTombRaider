@@ -8,6 +8,7 @@ TagManager:
   - SpawnPoint
   - RoomsController
   - DestroyPoint
+  - ClosedRoom
   layers:
   - Default
   - TransparentFX
