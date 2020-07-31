@@ -20,22 +20,17 @@ public class SpawnPoint : MonoBehaviour
     {
         creationTime = Time.time;
         controller = GameObject.FindGameObjectWithTag("RoomsController").GetComponent<RoomGenerationController>();
-        Invoke("DelayedStart", 1f);
+        Invoke("DelayedStart", .1f);
 
     }
 
     private void DelayedStart()
     {
-        lock (controller.spawnedRooms)
-        {
+        controller.toSpawn.Add(this);
+        Invoke("SpawnRoom", .2f);
 
-            //if ((controller.spawnedRooms.Count + controller.toSpawn.Count) < controller.NumberOfRooms)
-            {
-                controller.toSpawn.Add(this);
-                Invoke("SpawnRoom", 5f);
-            }
 
-        }
+
 
     }
 
@@ -48,13 +43,12 @@ public class SpawnPoint : MonoBehaviour
                 GameObject room = Instantiate(controller.closedRoom, transform.position, Quaternion.identity);
                 Debug.Log("Overlapping Spawn Points. Spawn Empty and destroy.");
             }
-            lock (controller.spawnedRooms)
+
+            if (controller.toSpawn.Contains(this))
             {
-                if (controller.toSpawn.Contains(this))
-                {
-                    controller.toSpawn.Remove(this);
-                }
+                controller.toSpawn.Remove(this);
             }
+
             spawned = true;
             Destroy(gameObject);
 
@@ -65,13 +59,12 @@ public class SpawnPoint : MonoBehaviour
         {
             Debug.Log("Hit DestroyPoint");
 
-            lock (controller.spawnedRooms)
+
+            if (controller.toSpawn.Contains(this))
             {
-                if (controller.toSpawn.Contains(this))
-                {
-                    controller.toSpawn.Remove(this);
-                }
+                controller.toSpawn.Remove(this);
             }
+
             Destroy(gameObject);
         }
     }
@@ -80,122 +73,121 @@ public class SpawnPoint : MonoBehaviour
     {
         if (!spawned)
         {
-            lock (controller.spawnedRooms)
+
+            if (spawnPointDirection == SpawnPoint.SpawnPointDirection.Left)
             {
-                if (spawnPointDirection == SpawnPoint.SpawnPointDirection.Left)
+                if (controller.spawnedRooms.Count + controller.toSpawn.Count == controller.NumberOfRooms)
                 {
-                    if (controller.spawnedRooms.Count + controller.toSpawn.Count == controller.NumberOfRooms)
-                    {
-                        Debug.Log("Spawn a rightSingle");
-                        GameObject room = Instantiate(controller.RightSingle, transform.position, Quaternion.identity);
-                        controller.spawnedRooms.Add(room);
-
-                    }
-                    else if(controller.spawnedRooms.Count + controller.toSpawn.Count > controller.NumberOfRooms)
-                    {
-                        GameObject room = Instantiate(controller.closedRoom, transform.position, Quaternion.identity);
-
-                       
-                    }
-                    else
-                    {
-                        Debug.Log("Spawn random right");
-                        int rand = Random.Range(0, controller.RightRooms.Length);
-
-                        GameObject room = Instantiate(controller.RightRooms[rand], transform.position, Quaternion.identity);
-
-                        controller.spawnedRooms.Add(room);
-                    }
+                    Debug.Log("Spawn a rightSingle");
+                    GameObject room = Instantiate(controller.RightSingle, transform.position, Quaternion.identity);
+                    controller.spawnedRooms.Add(room);
 
                 }
-                else if (spawnPointDirection == SpawnPoint.SpawnPointDirection.Right)
+                else if (controller.spawnedRooms.Count + controller.toSpawn.Count > controller.NumberOfRooms)
                 {
-                    if (controller.spawnedRooms.Count + controller.toSpawn.Count == controller.NumberOfRooms)
-                    {
-                        Debug.Log("Spawn a leftSingle");
-                        GameObject room = Instantiate(controller.LeftSingle, transform.position, Quaternion.identity);
+                    GameObject room = Instantiate(controller.closedRoom, transform.position, Quaternion.identity);
 
-                        controller.spawnedRooms.Add(room);
-                    }
-                    else if (controller.spawnedRooms.Count + controller.toSpawn.Count > controller.NumberOfRooms)
-                    {
-                        GameObject room = Instantiate(controller.closedRoom, transform.position, Quaternion.identity);
-
-
-                    }
-                    else
-                    {
-                        Debug.Log("Spawn a random left");
-                        int rand = Random.Range(0, controller.LeftRooms.Length);
-
-                        GameObject room = Instantiate(controller.LeftRooms[rand], transform.position, Quaternion.identity);
-
-                        controller.spawnedRooms.Add(room);
-                    }
 
                 }
-                else if (spawnPointDirection == SpawnPoint.SpawnPointDirection.Top)
+                else
                 {
-                    if (controller.spawnedRooms.Count + controller.toSpawn.Count == controller.NumberOfRooms)
-                    {
-                        Debug.Log("Spawn a BottomSingle");
-                        GameObject room = Instantiate(controller.BottomSingle, transform.position, Quaternion.identity);
+                    Debug.Log("Spawn random right");
+                    int rand = Random.Range(0, controller.RightRooms.Length);
 
-                        controller.spawnedRooms.Add(room);
-                    }
-                    else if (controller.spawnedRooms.Count + controller.toSpawn.Count > controller.NumberOfRooms)
-                    {
-                        GameObject room = Instantiate(controller.closedRoom, transform.position, Quaternion.identity);
+                    GameObject room = Instantiate(controller.RightRooms[rand], transform.position, Quaternion.identity);
 
-
-                    }
-                    else
-                    {
-                        Debug.Log("Spawn a random bottom");
-                        int rand = Random.Range(0, controller.BottomRooms.Length);
-
-                        GameObject room = Instantiate(controller.BottomRooms[rand], transform.position, Quaternion.identity);
-
-                        controller.spawnedRooms.Add(room);
-                    }
-
+                    controller.spawnedRooms.Add(room);
                 }
-                else if (spawnPointDirection == SpawnPoint.SpawnPointDirection.Bottom)
-                {
-                    if (controller.spawnedRooms.Count + controller.toSpawn.Count == controller.NumberOfRooms)
-                    {
-                        Debug.Log("Spawn a topSingle");
-
-                        GameObject room = Instantiate(controller.TopSingle, transform.position, Quaternion.identity);
-
-                        controller.spawnedRooms.Add(room);
-                    }
-                    else if (controller.spawnedRooms.Count + controller.toSpawn.Count > controller.NumberOfRooms)
-                    {
-                        GameObject room = Instantiate(controller.closedRoom, transform.position, Quaternion.identity);
-
-
-                    }
-                    else
-                    {
-
-                        Debug.Log("Spawn a random top");
-                        int rand = Random.Range(0, controller.TopRooms.Length);
-
-                        GameObject room = Instantiate(controller.TopRooms[rand], transform.position, Quaternion.identity);
-
-                        controller.spawnedRooms.Add(room);
-                    }
-
-                }
-                if (controller.toSpawn.Contains(this))
-                {
-                    controller.toSpawn.Remove(this);
-                }
-                spawned = true;
-
 
             }
+            else if (spawnPointDirection == SpawnPoint.SpawnPointDirection.Right)
+            {
+                if (controller.spawnedRooms.Count + controller.toSpawn.Count == controller.NumberOfRooms)
+                {
+                    Debug.Log("Spawn a leftSingle");
+                    GameObject room = Instantiate(controller.LeftSingle, transform.position, Quaternion.identity);
+
+                    controller.spawnedRooms.Add(room);
+                }
+                else if (controller.spawnedRooms.Count + controller.toSpawn.Count > controller.NumberOfRooms)
+                {
+                    GameObject room = Instantiate(controller.closedRoom, transform.position, Quaternion.identity);
+
+
+                }
+                else
+                {
+                    Debug.Log("Spawn a random left");
+                    int rand = Random.Range(0, controller.LeftRooms.Length);
+
+                    GameObject room = Instantiate(controller.LeftRooms[rand], transform.position, Quaternion.identity);
+
+                    controller.spawnedRooms.Add(room);
+                }
+
+            }
+            else if (spawnPointDirection == SpawnPoint.SpawnPointDirection.Top)
+            {
+                if (controller.spawnedRooms.Count + controller.toSpawn.Count == controller.NumberOfRooms)
+                {
+                    Debug.Log("Spawn a BottomSingle");
+                    GameObject room = Instantiate(controller.BottomSingle, transform.position, Quaternion.identity);
+
+                    controller.spawnedRooms.Add(room);
+                }
+                else if (controller.spawnedRooms.Count + controller.toSpawn.Count > controller.NumberOfRooms)
+                {
+                    GameObject room = Instantiate(controller.closedRoom, transform.position, Quaternion.identity);
+
+
+                }
+                else
+                {
+                    Debug.Log("Spawn a random bottom");
+                    int rand = Random.Range(0, controller.BottomRooms.Length);
+
+                    GameObject room = Instantiate(controller.BottomRooms[rand], transform.position, Quaternion.identity);
+
+                    controller.spawnedRooms.Add(room);
+                }
+
+            }
+            else if (spawnPointDirection == SpawnPoint.SpawnPointDirection.Bottom)
+            {
+                if (controller.spawnedRooms.Count + controller.toSpawn.Count == controller.NumberOfRooms)
+                {
+                    Debug.Log("Spawn a topSingle");
+
+                    GameObject room = Instantiate(controller.TopSingle, transform.position, Quaternion.identity);
+
+                    controller.spawnedRooms.Add(room);
+                }
+                else if (controller.spawnedRooms.Count + controller.toSpawn.Count > controller.NumberOfRooms)
+                {
+                    GameObject room = Instantiate(controller.closedRoom, transform.position, Quaternion.identity);
+
+
+                }
+                else
+                {
+
+                    Debug.Log("Spawn a random top");
+                    int rand = Random.Range(0, controller.TopRooms.Length);
+
+                    GameObject room = Instantiate(controller.TopRooms[rand], transform.position, Quaternion.identity);
+
+                    controller.spawnedRooms.Add(room);
+                }
+
+            }
+            if (controller.toSpawn.Contains(this))
+            {
+                controller.toSpawn.Remove(this);
+            }
+            spawned = true;
+
+
+
         }
     }
 }
