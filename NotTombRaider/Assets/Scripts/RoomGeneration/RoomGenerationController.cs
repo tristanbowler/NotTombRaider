@@ -42,7 +42,20 @@ public class RoomGenerationController : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
-              
+            else
+            {
+                GameObject[] spawns = GameObject.FindGameObjectsWithTag("SpawnPoint");
+                foreach(GameObject spawn in spawns)
+                {
+                    Destroy(spawn);
+                }
+
+                GameObject[] destroys = GameObject.FindGameObjectsWithTag("DestroyPoint");
+                foreach (GameObject destroy in destroys)
+                {
+                    Destroy(destroy);
+                }
+            }
         }
     }
 }

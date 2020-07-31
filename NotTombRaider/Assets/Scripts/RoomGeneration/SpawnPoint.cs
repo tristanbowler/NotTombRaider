@@ -20,17 +20,11 @@ public class SpawnPoint : MonoBehaviour
     {
         creationTime = Time.time;
         controller = GameObject.FindGameObjectWithTag("RoomsController").GetComponent<RoomGenerationController>();
-
-
-        //Invoke("DelayedStart", 1);
         controller.toSpawn.Add(this);
 
     }
 
-    private void DelayedStart()
-    {
-        controller.toSpawn.Add(this);
-    }
+    
 
     private void OnTriggerEnter(Collider other)
     {

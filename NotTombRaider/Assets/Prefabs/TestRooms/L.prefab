@@ -839,9 +839,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8122665448157642636}
   - component: {fileID: 8122665448157642637}
+  - component: {fileID: 1798024525320457663}
   m_Layer: 0
   m_Name: L
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -881,3 +882,19 @@ MonoBehaviour:
   - {fileID: 8122665447864805027}
   spawnOrder: -1
   orderLabel: {fileID: 2917819640895724794}
+  mainCamera: {fileID: 0}
+  playerOneIn: 0
+  playerTwoIn: 0
+--- !u!65 &1798024525320457663
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8122665448157642611}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.5, y: 0.9, z: 9.5}
+  m_Center: {x: 0, y: 0.5, z: 0}

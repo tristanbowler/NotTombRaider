@@ -620,9 +620,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4768322546576724016}
   - component: {fileID: 4768322546576724019}
+  - component: {fileID: 7873019033412602960}
   m_Layer: 0
   m_Name: TL
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -663,6 +664,22 @@ MonoBehaviour:
   - {fileID: 4157281668649084669}
   spawnOrder: -1
   orderLabel: {fileID: 7429337506485036762}
+  mainCamera: {fileID: 0}
+  playerOneIn: 0
+  playerTwoIn: 0
+--- !u!65 &7873019033412602960
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4768322546576724017}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.5, y: 0.9, z: 9.5}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &4768322546585214438
 GameObject:
   m_ObjectHideFlags: 0
