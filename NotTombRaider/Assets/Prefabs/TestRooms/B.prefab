@@ -189,6 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPointDirection: 3
   spawned: 0
+  creationTime: 0
 --- !u!65 &6561992681217310374
 BoxCollider:
   m_ObjectHideFlags: 0
