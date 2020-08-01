@@ -774,7 +774,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da713b45579a971489d2a90ccf1b47d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 3
+  moving: 0
+  degreesPerSecond: 180
 --- !u!54 &1360899832
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -996,9 +998,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cba7dca2285417478593b63555fcc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 3
   gun: {fileID: 2028600495}
   machete: {fileID: 426000750}
+  degreesPerSecond: 180
+  moving: 0
 --- !u!54 &1626720277
 Rigidbody:
   m_ObjectHideFlags: 0

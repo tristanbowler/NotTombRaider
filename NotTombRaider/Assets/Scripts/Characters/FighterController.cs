@@ -8,6 +8,9 @@ public class FighterController : MonoBehaviour
     public float moveSpeed = 1;
     public GunController gun;
     public MacheteController machete;
+    private Quaternion targetRotation;
+    public float degreesPerSecond = 180;
+    public bool moving = false;
     void Start()
     {
         
@@ -43,24 +46,40 @@ public class FighterController : MonoBehaviour
         {
             //Move forward: Increase Z
             movement += new Vector3(0, 0, 1);
+            moving = true;
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
             //Move back: Decrease Z
             movement += new Vector3(0, 0, -1);
+            moving = true;
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             //Move left: Increase X
             movement += new Vector3(-1, 0, 0);
+            moving = true;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
             //Move right: Decrease X
             movement += new Vector3(1, 0, 0);
+            moving = true;
         }
+        if (moving)
+        {
+            movement = movement.normalized;
+            transform.position += movement * moveSpeed * Time.deltaTime;
+            Vector3 xzDirection = new Vector3(movement.x, 0, movement.z);
+            if (xzDirection.magnitude > 0)
+            {
+                targetRotation = Quaternion.LookRotation(xzDirection);
+            }
+                
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, degreesPerSecond * Time.deltaTime);
+            moving = false;
+        }
+        
 
-        movement = movement.normalized;
-        transform.position += movement * moveSpeed * Time.deltaTime;
     }
 }
