@@ -40,6 +40,7 @@ public class WhipController : MonoBehaviour
         {
             whipStart = Time.time;
             isSnap = true;
+            this.GetComponent<MeshRenderer>().enabled = false;
             whipTail.SetActive(true);
             whipTail.transform.localScale = rangeScale;
         }
@@ -49,6 +50,7 @@ public class WhipController : MonoBehaviour
 
     public void RetractWhip()
     {
+        this.GetComponent<MeshRenderer>().enabled = true;
         whipTail.transform.localScale = startScale;
         whipTail.SetActive(false);
     }
