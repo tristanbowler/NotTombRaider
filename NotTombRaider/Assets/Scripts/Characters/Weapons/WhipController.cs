@@ -11,7 +11,7 @@ public class WhipController : MonoBehaviour
     private Vector3 rangeScale;
     private Vector3 startScale;
     private float whipStart;
-    private bool isSnap = false;
+    public bool isSnap = false;
 
 
     // Start is called before the first frame update
