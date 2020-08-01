@@ -37,7 +37,7 @@ public class GunController : MonoBehaviour
             fired.Add(bullet);
             reload.Remove(bullet);
             bullet.SetActive(true);
-            bullet.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, bulletForce));
+            bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward.normalized* bulletForce);
         }
     }
 
@@ -45,8 +45,8 @@ public class GunController : MonoBehaviour
     {
         fired.Remove(bullet);
         reload.Add(bullet);
-        bullet.transform.position = bullet.GetComponent<BulletController>().startPosition;
-        bullet.transform.rotation = new Quaternion(0, 0, 0, 0);
+        bullet.transform.localPosition = bullet.GetComponent<BulletController>().startPosition;
+        bullet.transform.localRotation = bullet.GetComponent<BulletController>().startRotation;
         bullet.SetActive(false);
     }
 
