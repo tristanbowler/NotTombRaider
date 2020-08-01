@@ -783,6 +783,7 @@ MonoBehaviour:
   moveSpeed: 3
   moving: 0
   degreesPerSecond: 180
+  whip: {fileID: 1609320241}
 --- !u!54 &1360899832
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -811,6 +812,7 @@ GameObject:
   - component: {fileID: 1609320240}
   - component: {fileID: 1609320239}
   - component: {fileID: 1609320238}
+  - component: {fileID: 1609320241}
   m_Layer: 9
   m_Name: Whip
   m_TagString: Untagged
@@ -896,6 +898,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609320236}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1609320241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609320236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4d7e6448593c24abf21ccf7ed1f06c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whipTail: {fileID: 164056644}
+  whipTime: 0.1
+  whipRange: 5
 --- !u!1 &1626720271
 GameObject:
   m_ObjectHideFlags: 0

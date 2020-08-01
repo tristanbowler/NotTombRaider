@@ -9,6 +9,7 @@ public class ThiefController : MonoBehaviour
     private Quaternion targetRotation;
     private Vector3 movement;
     public float degreesPerSecond = 180;
+    public WhipController whip;
     void Start()
     {
 
@@ -18,6 +19,15 @@ public class ThiefController : MonoBehaviour
     void Update()
     {
         CheckMovement();
+        CheckWhip();
+    }
+
+    private void CheckWhip()
+    {
+        if(Input.GetKey(KeyCode.Q))
+        {
+            whip.SnapWhip();
+        }
     }
 
     private void CheckMovement()
