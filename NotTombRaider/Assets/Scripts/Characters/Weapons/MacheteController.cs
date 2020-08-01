@@ -48,12 +48,12 @@ public class MacheteController : MonoBehaviour
         {
             if (upSwing)
             {
-                Vector3 rotation = this.transform.rotation.eulerAngles;
+                Vector3 rotation = this.transform.localRotation.eulerAngles;
                 float deltaX = (maxX - minX) / (3* swingTime / 4) * Time.deltaTime;
                 float deltaZ = (maxZ - minZ) / (3*swingTime / 4) * Time.deltaTime;
                 rotation = new Vector3(previous.x - deltaX, 0, 0);
                 previous = rotation;
-                this.transform.rotation = Quaternion.Euler(rotation);
+                this.transform.localRotation = Quaternion.Euler(rotation);
                 if (rotation.x <= minX)
                 {
                     upSwing = false;
@@ -61,17 +61,17 @@ public class MacheteController : MonoBehaviour
             }
             else
             {
-                Vector3 rotation = this.transform.rotation.eulerAngles;
+                Vector3 rotation = this.transform.localRotation.eulerAngles;
                 float deltaX = (maxX - minX) / (swingTime / 4) * Time.deltaTime;
                 float deltaZ = (maxZ - minZ) / (swingTime / 4) * Time.deltaTime;
                 rotation = new Vector3(previous.x + deltaX, 0, 0);
                 previous = rotation;
 
-                this.transform.rotation = Quaternion.Euler(rotation);
+                this.transform.localRotation = Quaternion.Euler(rotation);
                 if (rotation.x >= maxX)
                 {
                     isSwinging = false;
-                    this.transform.rotation = startRotation;
+                    this.transform.localRotation = startRotation;
                 }
             }
         }
