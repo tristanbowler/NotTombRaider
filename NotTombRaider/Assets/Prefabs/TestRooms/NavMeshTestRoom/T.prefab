@@ -964,6 +964,9 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   playerOneIn: 0
   playerTwoIn: 0
+  enemies:
+  - {fileID: 8308326409774120430}
+  boobyTraps: []
 --- !u!65 &5046636895433077574
 BoxCollider:
   m_ObjectHideFlags: 0

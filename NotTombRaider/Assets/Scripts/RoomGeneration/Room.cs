@@ -13,12 +13,22 @@ public class Room : MonoBehaviour
     public GameObject mainCamera;
     public bool playerOneIn = false;
     public bool playerTwoIn = false;
+    public GameObject[] enemies;
+    public GameObject[] boobyTraps;
 
     private void Start()
     {
         mainCamera = Camera.main.gameObject;
         controller = GameObject.FindGameObjectWithTag("RoomsController").GetComponent<RoomGenerationController>();
         //Invoke("SpawnAdjacents", 0.01f);
+        foreach(GameObject trap in boobyTraps)
+        {
+            trap.SetActive(false);
+        }
+        foreach(GameObject enemy in enemies)
+        {
+            enemy.SetActive(false);
+        }
     }
 
     public void SetSpawnOrder(int order)
@@ -40,6 +50,14 @@ public class Room : MonoBehaviour
         if(playerOneIn && playerTwoIn)
         {
             mainCamera.transform.position = new Vector3(this.transform.position.x, mainCamera.transform.position.y, this.transform.position.z);
+            foreach (GameObject trap in boobyTraps)
+            {
+                trap.SetActive(true);
+            }
+            foreach (GameObject enemy in enemies)
+            {
+                enemy.SetActive(true);
+            }
         }
     }
 
@@ -52,6 +70,17 @@ public class Room : MonoBehaviour
         if (other.CompareTag("Player2"))
         {
             playerTwoIn = false;
+        }
+        if(!playerOneIn && !playerTwoIn)
+        {
+            foreach (GameObject trap in boobyTraps)
+            {
+                trap.SetActive(false);
+            }
+            foreach (GameObject enemy in enemies)
+            {
+                enemy.SetActive(false);
+            }
         }
     }
 
