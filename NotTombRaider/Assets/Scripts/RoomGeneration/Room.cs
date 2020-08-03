@@ -13,13 +13,15 @@ public class Room : MonoBehaviour
     public GameObject mainCamera;
     public bool playerOneIn = false;
     public bool playerTwoIn = false;
-    public GameObject[] enemies;
-    public GameObject[] boobyTraps;
+    private GameObject[] enemies;
+    private GameObject[] boobyTraps;
 
     private void Start()
     {
         mainCamera = Camera.main.gameObject;
         controller = GameObject.FindGameObjectWithTag("RoomsController").GetComponent<RoomGenerationController>();
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        boobyTraps = GameObject.FindGameObjectsWithTag("Trap");
         //Invoke("SpawnAdjacents", 0.01f);
         foreach(GameObject trap in boobyTraps)
         {
