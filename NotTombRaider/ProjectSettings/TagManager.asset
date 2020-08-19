@@ -13,6 +13,7 @@ TagManager:
   - EntryRoom
   - Player1
   - Player2
+  - Trap
   layers:
   - Default
   - TransparentFX

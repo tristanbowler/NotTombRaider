@@ -1,0 +1,50 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Spikes : Trap 
+{
+    private Vector3 startPos;
+    public Vector3 offset;
+    private Vector3 endPos;
+    public bool isTriggered = false;
+    public bool isReleased = false;
+    public float moveSpeed = 1;
+
+    private void Start()
+    {
+        startPos = transform.position;
+        endPos = startPos + offset;
+    }
+
+    public override void Triggered()
+    {
+        isTriggered = true;
+    }
+
+    public override void Released()
+    {
+        isReleased = true;
+    }
+
+    private void Update()
+    {
+        if (isTriggered)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, endPos, moveSpeed * Time.deltaTime);
+            if(transform.position == endPos)
+            {
+                isTriggered = false;
+            }
+        }
+        else if (isReleased && !isTriggered)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, startPos, moveSpeed * Time.deltaTime);
+            if(transform.position == startPos)
+            {
+                isReleased = false;
+            }
+        }
+    }
+
+}
