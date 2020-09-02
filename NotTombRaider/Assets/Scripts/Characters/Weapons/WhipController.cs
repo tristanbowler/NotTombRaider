@@ -18,8 +18,8 @@ public class WhipController : MonoBehaviour
     void Start()
     {
         whipTail.SetActive(false);
-        rangeScale = new Vector3(1, 1, whipRange);
-        startScale = new Vector3(1,1,1);
+        //rangeScale = new Vector3(1, 1, whipRange);
+        //startScale = new Vector3(1,1,1);
     }
 
     // Update is called once per frame
@@ -42,7 +42,7 @@ public class WhipController : MonoBehaviour
             isSnap = true;
             this.GetComponent<MeshRenderer>().enabled = false;
             whipTail.SetActive(true);
-            whipTail.transform.localScale = rangeScale;
+            //whipTail.transform.localScale = rangeScale;
         }
         
 
@@ -51,7 +51,7 @@ public class WhipController : MonoBehaviour
     public void RetractWhip()
     {
         this.GetComponent<MeshRenderer>().enabled = true;
-        whipTail.transform.localScale = startScale;
+        //whipTail.transform.localScale = startScale;
         whipTail.SetActive(false);
     }
 }

@@ -9,7 +9,8 @@ public class Spikes : Trap
     private Vector3 endPos;
     public bool isTriggered = false;
     public bool isReleased = false;
-    public float moveSpeed = 1;
+    public float moveSpeedUp= 1;
+    public float moveSpeedDown = 0.25f;
 
     private void Start()
     {
@@ -31,15 +32,15 @@ public class Spikes : Trap
     {
         if (isTriggered)
         {
-            transform.position = Vector3.MoveTowards(transform.position, endPos, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, endPos, moveSpeedUp * Time.deltaTime);
             if(transform.position == endPos)
             {
                 isTriggered = false;
             }
         }
-        else if (isReleased && !isTriggered)
+        else if (isReleased)
         {
-            transform.position = Vector3.MoveTowards(transform.position, startPos, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, startPos, moveSpeedDown * Time.deltaTime);
             if(transform.position == startPos)
             {
                 isReleased = false;
