@@ -10,7 +10,6 @@ public class Room : MonoBehaviour
     private RoomGenerationController controller;
     public int spawnOrder = -1;
     public TextMeshProUGUI orderLabel;
-    public GameObject mainCamera;
     public bool playerOneIn = false;
     public bool playerTwoIn = false;
     private GameObject[] enemies;
@@ -18,7 +17,6 @@ public class Room : MonoBehaviour
 
     private void Start()
     {
-        mainCamera = Camera.main.gameObject;
         controller = GameObject.FindGameObjectWithTag("RoomsController").GetComponent<RoomGenerationController>();
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         boobyTraps = GameObject.FindGameObjectsWithTag("Trap");
@@ -51,7 +49,6 @@ public class Room : MonoBehaviour
         }
         if(playerOneIn && playerTwoIn)
         {
-            mainCamera.transform.position = new Vector3(this.transform.position.x, mainCamera.transform.position.y, this.transform.position.z);
             foreach (GameObject trap in boobyTraps)
             {
                 trap.SetActive(true);
