@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7481629926426639324}
   - component: {fileID: 126648881441929105}
   - component: {fileID: 5921857243753837003}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: SpawnOrderLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,9 +92,6 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_outlineColor:
-    serializedVersion: 2
-    rgba: 4278190080
   m_fontSize: 1
   m_fontSizeBase: 1
   m_fontWeight: 400
@@ -105,7 +102,6 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_isAlignmentEnumConverted: 0
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -115,10 +111,8 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
-  m_isTextTruncated: 0
   m_enableKerning: 1
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
@@ -126,30 +120,17 @@ MonoBehaviour:
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
-  m_ignoreCulling: 1
   m_horizontalMapping: 0
   m_verticalMapping: 0
   m_uvLineOffset: 0
   m_geometrySortingOrder: 0
   m_IsTextObjectScaleStatic: 0
   m_VertexBufferAutoSizeReduction: 1
-  m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
   m_margin: {x: -0.24005032, y: 0, z: 0, w: 0}
-  m_textInfo:
-    textComponent: {fileID: 5921857243753837003}
-    characterCount: 8
-    spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
-    linkCount: 0
-    lineCount: 1
-    pageCount: 1
-    materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_spriteAnimator: {fileID: 0}
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
@@ -165,7 +146,7 @@ GameObject:
   - component: {fileID: 8920949859288707419}
   - component: {fileID: 3893955182641338589}
   - component: {fileID: 2296622457086997757}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: SpawnOrderCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +245,7 @@ GameObject:
   - component: {fileID: 8703854805086843468}
   - component: {fileID: 8703854805086843469}
   - component: {fileID: 8703854805086843470}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HalfWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +337,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8703854805176196060}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TopDoorway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +372,7 @@ GameObject:
   - component: {fileID: 8703854805180679816}
   - component: {fileID: 8703854805180679815}
   - component: {fileID: -5574286365635467572}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TBR
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -435,7 +416,6 @@ MonoBehaviour:
   - {fileID: 8703854806407502876}
   spawnOrder: -1
   orderLabel: {fileID: 5921857243753837003}
-  mainCamera: {fileID: 0}
   playerOneIn: 0
   playerTwoIn: 0
 --- !u!65 &-5574286365635467572
@@ -463,7 +443,7 @@ GameObject:
   - component: {fileID: 8703854805389463111}
   - component: {fileID: 3625274203716356522}
   - component: {fileID: 1463926628736501304}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TopSpawnPoint
   m_TagString: SpawnPoint
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -537,7 +517,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8703854805394996993}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BottomDoorway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,7 +553,7 @@ GameObject:
   - component: {fileID: 8703854805497892901}
   - component: {fileID: 8703854805497892902}
   - component: {fileID: 8703854805497892903}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HalfWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -668,7 +648,7 @@ GameObject:
   - component: {fileID: 8703854805666215165}
   - component: {fileID: 4106417745353229406}
   - component: {fileID: 3607527455620315732}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RightSpawnPoint
   m_TagString: SpawnPoint
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -745,7 +725,7 @@ GameObject:
   - component: {fileID: 8703854805914392260}
   - component: {fileID: 8703854805914392261}
   - component: {fileID: 8703854805914392262}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HalfWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -840,7 +820,7 @@ GameObject:
   - component: {fileID: 8703854806212332299}
   - component: {fileID: 8703854806212332300}
   - component: {fileID: 8703854806212332301}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HalfWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -935,7 +915,7 @@ GameObject:
   - component: {fileID: 8703854806407502876}
   - component: {fileID: 1922062483941535642}
   - component: {fileID: 949505371515923697}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BottomSpawnPoint
   m_TagString: SpawnPoint
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -1012,7 +992,7 @@ GameObject:
   - component: {fileID: 8703854806604925270}
   - component: {fileID: 8703854806604925271}
   - component: {fileID: 8703854806604925272}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HalfWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1107,7 +1087,7 @@ GameObject:
   - component: {fileID: 8703854806760992207}
   - component: {fileID: 8703854806760992208}
   - component: {fileID: 8703854806760992209}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LeftFullWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1202,7 +1182,7 @@ GameObject:
   - component: {fileID: 8703854806815244846}
   - component: {fileID: 8703854806815244847}
   - component: {fileID: 8703854806815244848}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HalfWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1294,7 +1274,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8703854806975552273}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RightDoorway
   m_TagString: Untagged
   m_Icon: {fileID: 0}

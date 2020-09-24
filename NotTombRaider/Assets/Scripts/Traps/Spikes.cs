@@ -7,8 +7,8 @@ public class Spikes : Trap
     private Vector3 startPos;
     public Vector3 offset;
     private Vector3 endPos;
-    public bool isTriggered = false;
-    public bool isReleased = false;
+    public bool isTriggered;
+    public bool isReleased;
     public float moveSpeedUp= 1;
     public float moveSpeedDown = 0.25f;
 

@@ -44,7 +44,7 @@ public class FighterController : MonoBehaviour
     {
         Vector3 movement = new Vector3(0, 0, 0);
 
-        if (!controller.stickHorizontal.Equals(0) || !controller.stickVertical.Equals(0))
+        if (controller!=null &&(!controller.stickHorizontal.Equals(0) || !controller.stickVertical.Equals(0)))
         {
             moving = true;
             movement += controller.stickHorizontal*(new Vector3(1, 0, 0));

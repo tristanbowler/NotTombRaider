@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 687396465485827738}
   - component: {fileID: 687396465485827737}
   - component: {fileID: 4179036525830797625}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HalfWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 687396465488272077}
   - component: {fileID: 687396465488272076}
   - component: {fileID: 4472040018723142754}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HalfWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 687396465518070624}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LeftDoorway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 687396465683679882}
   - component: {fileID: 687396465683679881}
   - component: {fileID: 2189958046460089727}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HalfWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 687396465744289367}
   - component: {fileID: 687396465744289368}
   - component: {fileID: -8416814095605969573}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TBLR
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -425,7 +425,6 @@ MonoBehaviour:
   - {fileID: 687396466090695286}
   spawnOrder: -1
   orderLabel: {fileID: 0}
-  mainCamera: {fileID: 0}
   playerOneIn: 0
   playerTwoIn: 0
 --- !u!65 &-8416814095605969573
@@ -453,7 +452,7 @@ GameObject:
   - component: {fileID: 687396465879039723}
   - component: {fileID: 7207981799600434921}
   - component: {fileID: 1354444113934265629}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TopSpawnPoint
   m_TagString: SpawnPoint
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -531,7 +530,7 @@ GameObject:
   - component: {fileID: 687396465912815344}
   - component: {fileID: 687396465912815311}
   - component: {fileID: 5205139099625658940}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HalfWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +641,7 @@ GameObject:
   - component: {fileID: 687396466090695286}
   - component: {fileID: 2829914310190252586}
   - component: {fileID: 9214845804525369566}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BottomSpawnPoint
   m_TagString: SpawnPoint
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -716,7 +715,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 687396466261278445}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BottomDoorway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -753,7 +752,7 @@ GameObject:
   - component: {fileID: 687396466290050751}
   - component: {fileID: 687396466290050750}
   - component: {fileID: 2146701499865803036}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HalfWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -864,7 +863,7 @@ GameObject:
   - component: {fileID: 687396466309950355}
   - component: {fileID: 3745197376354744552}
   - component: {fileID: 479027492254781884}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RightSpawnPoint
   m_TagString: SpawnPoint
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -942,7 +941,7 @@ GameObject:
   - component: {fileID: 687396466662915689}
   - component: {fileID: 687396466662915688}
   - component: {fileID: 4367557479978022536}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HalfWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1050,7 +1049,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 687396467161887420}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TopDoorway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1087,7 +1086,7 @@ GameObject:
   - component: {fileID: 687396467192432471}
   - component: {fileID: 687396467192432470}
   - component: {fileID: 2460906273038624181}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HalfWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1199,7 +1198,7 @@ GameObject:
   - component: {fileID: 687396467306225728}
   - component: {fileID: 687396467306225759}
   - component: {fileID: 926711354168780930}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HalfWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1307,7 +1306,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 687396467454718403}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RightDoorway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1343,7 +1342,7 @@ GameObject:
   - component: {fileID: 687396467515502541}
   - component: {fileID: 305092268189169262}
   - component: {fileID: 5855602805475995923}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LeftSpawnPoint
   m_TagString: SpawnPoint
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -1420,7 +1419,7 @@ GameObject:
   - component: {fileID: 3874781302257657562}
   - component: {fileID: 1887474915432635531}
   - component: {fileID: 7666748329607166748}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Destroyer
   m_TagString: SpawnPoint
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}

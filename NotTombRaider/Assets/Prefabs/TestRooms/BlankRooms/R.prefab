@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 997153737716292655}
   - component: {fileID: 997153737716292654}
   - component: {fileID: -2115711964439518611}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: R
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -53,7 +53,6 @@ MonoBehaviour:
   - {fileID: 997153738891585388}
   spawnOrder: -1
   orderLabel: {fileID: 2272064654571428647}
-  mainCamera: {fileID: 0}
   playerOneIn: 0
   playerTwoIn: 0
 --- !u!65 &-2115711964439518611
@@ -82,7 +81,7 @@ GameObject:
   - component: {fileID: 997153737817518639}
   - component: {fileID: 997153737817518636}
   - component: {fileID: 8453925485008222779}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BottomFullWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +193,7 @@ GameObject:
   - component: {fileID: 997153737826206498}
   - component: {fileID: 997153737826206499}
   - component: {fileID: 4658065868156144073}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TopFullWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +301,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 997153738379895125}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RightDoorway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +338,7 @@ GameObject:
   - component: {fileID: 997153738636241402}
   - component: {fileID: 997153738636241403}
   - component: {fileID: 6936460541156383793}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LeftFullWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,7 +450,7 @@ GameObject:
   - component: {fileID: 997153738687733007}
   - component: {fileID: 997153738687733004}
   - component: {fileID: 2113714448206395864}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HalfWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -563,7 +562,7 @@ GameObject:
   - component: {fileID: 997153738830548275}
   - component: {fileID: 997153738830548272}
   - component: {fileID: 5737249485038063942}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HalfWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -674,7 +673,7 @@ GameObject:
   - component: {fileID: 997153738891585388}
   - component: {fileID: 2708326608022875450}
   - component: {fileID: 8720390579814040885}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RightSpawnPoint
   m_TagString: SpawnPoint
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -750,7 +749,7 @@ GameObject:
   - component: {fileID: 694567879368046395}
   - component: {fileID: 8974410259103710123}
   - component: {fileID: 2272064654571428647}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: SpawnOrderLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -885,7 +884,7 @@ GameObject:
   - component: {fileID: 5893108619105216893}
   - component: {fileID: 4162387975896702921}
   - component: {fileID: 381674343565815774}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: SpawnOrderCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

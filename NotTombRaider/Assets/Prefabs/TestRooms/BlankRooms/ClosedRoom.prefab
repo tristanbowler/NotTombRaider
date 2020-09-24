@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3121675459448168597}
   - component: {fileID: 2989866749891261737}
   - component: {fileID: 7580996853134834435}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Destroyer
   m_TagString: DestroyPoint
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -84,7 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7830360239469341710}
   - component: {fileID: 7830360239469341709}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ClosedRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,6 @@ MonoBehaviour:
   SpawnPoints: []
   spawnOrder: -1
   orderLabel: {fileID: 0}
-  mainCamera: {fileID: 0}
   playerOneIn: 0
   playerTwoIn: 0
 --- !u!1 &7830360241071278784
@@ -137,7 +136,7 @@ GameObject:
   - component: {fileID: 7830360241071278797}
   - component: {fileID: 7830360241071278798}
   - component: {fileID: 7830360241071278799}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ClosedRoom
   m_TagString: ClosedRoom
   m_Icon: {fileID: 0}
