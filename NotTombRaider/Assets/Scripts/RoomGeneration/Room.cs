@@ -2,32 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor.Animations;
+using System.Linq;
 
 public class Room : MonoBehaviour
 {
     // Start is called before the first frame update
     public List<SpawnPoint> SpawnPoints;
-    private RoomGenerationController controller;
+    private RoomGenerationController roomController;
+    private RandomDetailPlacementController detailController;
     public int spawnOrder = -1;
     public TextMeshProUGUI orderLabel;
     public bool playerOneIn = false;
     public bool playerTwoIn = false;
-    private GameObject[] enemies;
-    private GameObject[] boobyTraps;
+    public List<GameObject> enemies;
+    public List<GameObject> boobyTraps;
+    public List<GameObject> pots;
+
 
     private void Start()
     {
-        controller = GameObject.FindGameObjectWithTag("RoomsController").GetComponent<RoomGenerationController>();
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        boobyTraps = GameObject.FindGameObjectsWithTag("Trap");
-        //Invoke("SpawnAdjacents", 0.01f);
-        foreach(GameObject trap in boobyTraps)
+        roomController = GameObject.FindGameObjectWithTag("RoomsController").GetComponent<RoomGenerationController>();
+        detailController = GameObject.FindGameObjectWithTag("RoomsController").GetComponent<RandomDetailPlacementController>();
+        SpawnPots();
+    }
+
+    private void SpawnPots()
+    {
+        int random = Random.Range(0, detailController.potSpots.Length);
+        GameObject potsArrangement = Instantiate(detailController.potSpots[random], this.transform);
+        Transform[] children = potsArrangement.GetComponentsInChildren<Transform>();
+        foreach(Transform child in children)
         {
-            trap.SetActive(false);
-        }
-        foreach(GameObject enemy in enemies)
-        {
-            enemy.SetActive(false);
+            if (child.CompareTag(detailController.potSpotTag))
+            {
+                int randomPot = Random.Range(0, detailController.pots.Length);
+                GameObject pot = Instantiate(detailController.pots[randomPot]);
+                pot.transform.parent = child;
+                pot.transform.position = child.position;
+                pots.Add(pot);
+            }
         }
     }
 

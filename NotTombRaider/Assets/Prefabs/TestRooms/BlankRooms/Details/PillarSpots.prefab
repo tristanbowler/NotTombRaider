@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 349058142021749567}
   m_Layer: 0
   m_Name: PillarSpot (2)
-  m_TagString: Untagged
+  m_TagString: PillarSpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 3857799778042020962}
   m_Layer: 0
   m_Name: PillarSpot (1)
-  m_TagString: Untagged
+  m_TagString: PillarSpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 1238019681548752389}
   m_Layer: 0
   m_Name: PillarSpot (3)
-  m_TagString: Untagged
+  m_TagString: PillarSpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 8441825121335534747}
   m_Layer: 0
   m_Name: PillarSpot (4)
-  m_TagString: Untagged
+  m_TagString: PillarSpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
