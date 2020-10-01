@@ -311,11 +311,12 @@ MonoBehaviour:
   - {fileID: 1125009944292157677}
   spawnOrder: -1
   orderLabel: {fileID: 2147568707029062822}
-  mainCamera: {fileID: 0}
   playerOneIn: 0
   playerTwoIn: 0
   enemies: []
   boobyTraps: []
+  pots: []
+  pillars: []
 --- !u!65 &6983173935459003884
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -891,6 +892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4269e2e2477687943aa255b078f0078f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 2671627033120959589}
 --- !u!1 &3539532099547669338
 GameObject:
   m_ObjectHideFlags: 0

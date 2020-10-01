@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 7830360239469341709}
   m_Layer: 11
   m_Name: ClosedRoom
-  m_TagString: Untagged
+  m_TagString: ClosedRoom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,6 +126,7 @@ MonoBehaviour:
   enemies: []
   boobyTraps: []
   pots: []
+  pillars: []
 --- !u!1 &7830360241071278784
 GameObject:
   m_ObjectHideFlags: 0

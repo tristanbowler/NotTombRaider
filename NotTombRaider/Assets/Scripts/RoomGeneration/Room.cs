@@ -18,13 +18,19 @@ public class Room : MonoBehaviour
     public List<GameObject> enemies;
     public List<GameObject> boobyTraps;
     public List<GameObject> pots;
+    public List<GameObject> pillars;
 
 
     private void Start()
     {
         roomController = GameObject.FindGameObjectWithTag("RoomsController").GetComponent<RoomGenerationController>();
         detailController = GameObject.FindGameObjectWithTag("RoomsController").GetComponent<RandomDetailPlacementController>();
-        SpawnPots();
+        if (!this.CompareTag("ClosedRoom"))
+        {
+            SpawnPots();
+            SpawnPillars();
+            SpawnEnemies();
+        }
     }
 
     private void SpawnPots()
@@ -41,6 +47,45 @@ public class Room : MonoBehaviour
                 pot.transform.parent = child;
                 pot.transform.position = child.position;
                 pots.Add(pot);
+                child.GetComponent<MeshRenderer>().enabled = false;
+            }
+        }
+    }
+
+    private void SpawnPillars()
+    {
+        int random = Random.Range(0, detailController.pillarSpots.Length);
+        GameObject pillarsArrangement = Instantiate(detailController.pillarSpots[random], this.transform);
+        Transform[] children = pillarsArrangement.GetComponentsInChildren<Transform>();
+        foreach (Transform child in children)
+        {
+            if (child.CompareTag(detailController.pillarSpotTag))
+            {
+                int randomPillar = Random.Range(0, detailController.pillars.Length);
+                GameObject pillar = Instantiate(detailController.pillars[randomPillar]);
+                pillar.transform.parent = child;
+                pillar.transform.position = child.position;
+                pillars.Add(pillar);
+                child.GetComponent<MeshRenderer>().enabled = false;
+            }
+        }
+    }
+
+    private void SpawnEnemies()
+    {
+        int random = Random.Range(0, detailController.enemySpots.Length);
+        GameObject enemiesArrangement = Instantiate(detailController.enemySpots[random], this.transform);
+        Transform[] children = enemiesArrangement.GetComponentsInChildren<Transform>();
+        foreach (Transform child in children)
+        {
+            if (child.CompareTag(detailController.enemySpotTag))
+            {
+                int randomEnemy = Random.Range(0, detailController.enemies.Length);
+                GameObject enemy = Instantiate(detailController.enemies[randomEnemy], child);
+                //enemy.transform.parent = child;
+                enemy.transform.position = child.position;
+                enemies.Add(enemy);
+                child.GetComponent<MeshRenderer>().enabled = false;
             }
         }
     }
@@ -61,15 +106,15 @@ public class Room : MonoBehaviour
         {
             playerTwoIn = true;
         }
-        if(playerOneIn && playerTwoIn)
+        if(playerOneIn || playerTwoIn)
         {
             foreach (GameObject trap in boobyTraps)
             {
-                trap.SetActive(true);
+                //trap.SetActive(true);
             }
             foreach (GameObject enemy in enemies)
             {
-                enemy.SetActive(true);
+                enemy.GetComponent<EnemyController>().enabled = true;
             }
         }
     }
@@ -86,14 +131,8 @@ public class Room : MonoBehaviour
         }
         if(!playerOneIn && !playerTwoIn)
         {
-            foreach (GameObject trap in boobyTraps)
-            {
-                trap.SetActive(false);
-            }
-            foreach (GameObject enemy in enemies)
-            {
-                enemy.SetActive(false);
-            }
+            
+            
         }
     }
 
