@@ -12,9 +12,12 @@ public class FighterController : MonoBehaviour
     public float degreesPerSecond = 180;
     public bool moving = false;
     public GamepadController controller;
+    public bool collisionDetected;
+    private Rigidbody rigidBody;
+    public float collisionForce = 100;
     void Start()
     {
-        
+        rigidBody = this.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -77,7 +80,7 @@ public class FighterController : MonoBehaviour
                 moving = true;
             }
         }
-        if (moving)
+        if (moving && !collisionDetected)
         {
             movement = movement.normalized;
             transform.position += movement * moveSpeed * Time.deltaTime;
@@ -91,6 +94,23 @@ public class FighterController : MonoBehaviour
             moving = false;
         }
         
+        
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        collisionDetected = true;
+        Vector3 direction = transform.position - collision.collider.transform.position;
+        direction.Normalize();
+        rigidBody.AddForce(direction * collisionForce);
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        collisionDetected = false;
+        //rigidBody.velocity = Vector3.Lerp(rigidBody.velocity, Vector3.zero, 0.90f);
+        rigidBody.velocity = Vector3.zero;
+        rigidBody.angularVelocity = Vector3.zero;
     }
 }
