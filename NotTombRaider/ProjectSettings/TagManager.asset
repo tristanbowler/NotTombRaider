@@ -30,8 +30,8 @@ TagManager:
   - Player 2
   - Destroyers and Spawners
   - Environment
-  - 
-  - 
+  - NavMeshPlane
+  - PlayerWeapons
   - 
   - 
   - 

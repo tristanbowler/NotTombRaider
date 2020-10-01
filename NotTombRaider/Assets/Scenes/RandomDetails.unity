@@ -480,7 +480,7 @@ GameObject:
   - component: {fileID: 997656155}
   - component: {fileID: 997656154}
   - component: {fileID: 997656153}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Plane
   m_TagString: EntryRoom
   m_Icon: {fileID: 0}
@@ -508,7 +508,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 997656152}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -748,6 +748,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1009153656}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1210691398 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8983534101182126978, guid: 54cd660d73104174fa5542bff02fb948,
+    type: 3}
+  m_PrefabInstance: {fileID: 2085242573}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1210691400
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210691398}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1258323044 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a31efc7dd6d3fc74cb745bd96687df6f,
@@ -1751,6 +1771,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5075082595185614373, guid: 54cd660d73104174fa5542bff02fb948,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6492490945898899124, guid: 54cd660d73104174fa5542bff02fb948,
         type: 3}
       propertyPath: m_TagString
@@ -1764,12 +1789,12 @@ PrefabInstance:
     - target: {fileID: 7402912372605148700, guid: 54cd660d73104174fa5542bff02fb948,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8983534101182126978, guid: 54cd660d73104174fa5542bff02fb948,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54cd660d73104174fa5542bff02fb948, type: 3}
@@ -2305,6 +2330,21 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 1.6
       objectReference: {fileID: 0}
+    - target: {fileID: 3211134560324385421, guid: 8123f15dee319e746861ff8f3cb4a82a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3814824601428203213, guid: 8123f15dee319e746861ff8f3cb4a82a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3814824601951198557, guid: 8123f15dee319e746861ff8f3cb4a82a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 4049179249587253369, guid: 8123f15dee319e746861ff8f3cb4a82a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2364,6 +2404,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HumanFighter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6445342304903220297, guid: 8123f15dee319e746861ff8f3cb4a82a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8123f15dee319e746861ff8f3cb4a82a, type: 3}
@@ -2465,6 +2510,31 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 1.6
       objectReference: {fileID: 0}
+    - target: {fileID: 909550911923595664, guid: 9b53855d1d1d8d84697d70cc5d1a743e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1485295572278262084, guid: 9b53855d1d1d8d84697d70cc5d1a743e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363856950896065192, guid: 9b53855d1d1d8d84697d70cc5d1a743e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363856952848819453, guid: 9b53855d1d1d8d84697d70cc5d1a743e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3498235574269052609, guid: 9b53855d1d1d8d84697d70cc5d1a743e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 3815649357458662178, guid: 9b53855d1d1d8d84697d70cc5d1a743e,
         type: 3}
       propertyPath: m_Name
@@ -2524,6 +2594,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243782986990736545, guid: 9b53855d1d1d8d84697d70cc5d1a743e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b53855d1d1d8d84697d70cc5d1a743e, type: 3}
