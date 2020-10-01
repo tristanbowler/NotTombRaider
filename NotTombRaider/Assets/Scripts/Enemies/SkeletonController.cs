@@ -7,11 +7,13 @@ public class SkeletonController : EnemyController
 {
     private GameObject closestPlayer;
     public NavMeshAgent agent;
+    private GameObject player1;
+    private GameObject player2;
     void Start()
     {
         
-        GameObject player1 = GameObject.FindGameObjectWithTag("Player1");
-        GameObject player2 = GameObject.FindGameObjectWithTag("Player2");
+        player1 = GameObject.FindGameObjectWithTag("Player1");
+        player2 = GameObject.FindGameObjectWithTag("Player2");
         if(Vector3.Distance(this.transform.position, player1.transform.position) <= Vector3.Distance(this.transform.position, player2.transform.position))
         {
             closestPlayer = player1;
@@ -33,6 +35,25 @@ public class SkeletonController : EnemyController
         agent.SetDestination(closestPlayer.transform.position);
     }
 
+
+    private void Update()
+    {
+        if (Vector3.Distance(this.transform.position, player1.transform.position) <= Vector3.Distance(this.transform.position, player2.transform.position))
+        {
+            closestPlayer = player1;
+            Debug.Log("Closest Player: player 1");
+        }
+        else
+        {
+            closestPlayer = player2;
+            Debug.Log("Closest Player: player 2");
+        }
+        
+        agent.destination = closestPlayer.transform.position;
+        agent.SetDestination(closestPlayer.transform.position);
+    }
     // Update is called once per frame
+
     
+
 }

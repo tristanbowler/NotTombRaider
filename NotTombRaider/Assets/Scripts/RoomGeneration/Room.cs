@@ -15,6 +15,7 @@ public class Room : MonoBehaviour
     public TextMeshProUGUI orderLabel;
     public bool playerOneIn = false;
     public bool playerTwoIn = false;
+    public bool roomActive = false;
     public List<GameObject> enemies;
     public List<GameObject> boobyTraps;
     public List<GameObject> pots;
@@ -108,6 +109,7 @@ public class Room : MonoBehaviour
         }
         if(playerOneIn || playerTwoIn)
         {
+            roomActive = true;
             foreach (GameObject trap in boobyTraps)
             {
                 //trap.SetActive(true);
@@ -129,10 +131,13 @@ public class Room : MonoBehaviour
         {
             playerTwoIn = false;
         }
-        if(!playerOneIn && !playerTwoIn)
+        if(!playerOneIn && !playerTwoIn && roomActive)
         {
-            
-            
+            roomActive = false;
+            foreach (GameObject enemy in enemies)
+            {
+                enemy.GetComponent<EnemyController>().enabled = false;
+            }
         }
     }
 
