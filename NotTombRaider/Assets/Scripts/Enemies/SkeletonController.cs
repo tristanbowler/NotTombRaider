@@ -9,6 +9,9 @@ public class SkeletonController : EnemyController
     public NavMeshAgent agent;
     private GameObject player1;
     private GameObject player2;
+    public MacheteController machete;
+    public float attackCoolDownTime = 2;
+    private bool attackAvailable = true;
     void Start()
     {
         
@@ -35,6 +38,22 @@ public class SkeletonController : EnemyController
         agent.SetDestination(closestPlayer.transform.position);
     }
 
+    private IEnumerator AttackCoolDown()
+    {
+        yield return new WaitForSeconds(attackCoolDownTime);
+        attackAvailable = true;
+
+    }
+    private void CheckMachete()
+    {
+        if((Vector3.Distance(this.transform.position, closestPlayer.transform.position) < 2 * agent.stoppingDistance) && attackAvailable)
+        {
+            machete.Swing();
+            attackAvailable = false;
+            StartCoroutine(AttackCoolDown());
+        }
+    }
+
 
     private void Update()
     {
@@ -51,6 +70,7 @@ public class SkeletonController : EnemyController
         
         agent.destination = closestPlayer.transform.position;
         agent.SetDestination(closestPlayer.transform.position);
+        CheckMachete();
     }
     // Update is called once per frame
 
