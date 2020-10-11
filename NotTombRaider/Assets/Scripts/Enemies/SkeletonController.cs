@@ -70,7 +70,10 @@ public class SkeletonController : EnemyController
         
         agent.destination = closestPlayer.transform.position;
         agent.SetDestination(closestPlayer.transform.position);
-        CheckMachete();
+        if(machete!= null)
+        {
+            CheckMachete();
+        }
     }
     // Update is called once per frame
 
