@@ -20,12 +20,12 @@ public class SkeletonController : EnemyController
         if(Vector3.Distance(this.transform.position, player1.transform.position) <= Vector3.Distance(this.transform.position, player2.transform.position))
         {
             closestPlayer = player1;
-            Debug.Log("Closest Player: player 1");
+            //Debug.Log("Closest Player: player 1");
         }
         else
         {
             closestPlayer = player2;
-            Debug.Log("Closest Player: player 2");
+            //Debug.Log("Closest Player: player 2");
         }
         if(agent == null)
         {
@@ -60,12 +60,12 @@ public class SkeletonController : EnemyController
         if (Vector3.Distance(this.transform.position, player1.transform.position) <= Vector3.Distance(this.transform.position, player2.transform.position))
         {
             closestPlayer = player1;
-            Debug.Log("Closest Player: player 1");
+            //Debug.Log("Closest Player: player 1");
         }
         else
         {
             closestPlayer = player2;
-            Debug.Log("Closest Player: player 2");
+            //Debug.Log("Closest Player: player 2");
         }
         
         agent.destination = closestPlayer.transform.position;
