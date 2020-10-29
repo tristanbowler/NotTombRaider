@@ -28,9 +28,13 @@ public class Room : MonoBehaviour
         detailController = GameObject.FindGameObjectWithTag("RoomsController").GetComponent<RandomDetailPlacementController>();
         if (!this.CompareTag("ClosedRoom"))
         {
-            SpawnPots();
-            SpawnPillars();
-            SpawnEnemies();
+            if(detailController != null && detailController.spawn)
+            {
+                SpawnPots();
+                SpawnPillars();
+                SpawnEnemies();
+            }
+            
         }
     }
 

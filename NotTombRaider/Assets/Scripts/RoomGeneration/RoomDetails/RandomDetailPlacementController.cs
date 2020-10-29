@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RandomDetailPlacementController : MonoBehaviour
 {
+    public bool spawn = true;
+
     [Header("Arrangements")]
     public GameObject[] potSpots;
     public GameObject[] pillarSpots;

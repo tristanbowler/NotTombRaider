@@ -9,8 +9,8 @@ public class CameraMovement : MonoBehaviour
     private Camera mainCamera;
     public float zoomFactor = 1.5f;
     public float followTimeDelta = 0.8f;
-    private float maxHeight = 14;
-    private float minHeight = 10;
+    public float maxHeight = 14;
+    public float minHeight = 10;
     private Vector3 newCameraDestination;
     private Vector3 oldCameraDestination;
 

@@ -1374,6 +1374,8 @@ MonoBehaviour:
   fighter: {fileID: 1760971897}
   zoomFactor: 1
   followTimeDelta: 0.4
+  maxHeight: 25
+  minHeight: 20
 --- !u!1 &2001958391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1980,6 +1982,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2626688053058535367, guid: 57640152e46a545888b827714102dacc,
         type: 3}
+      propertyPath: LeftRooms.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2626688053058535367, guid: 57640152e46a545888b827714102dacc,
+        type: 3}
+      propertyPath: RightRooms.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2626688053058535367, guid: 57640152e46a545888b827714102dacc,
+        type: 3}
+      propertyPath: BottomRooms.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2626688053058535367, guid: 57640152e46a545888b827714102dacc,
+        type: 3}
+      propertyPath: TopRooms.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2626688053058535367, guid: 57640152e46a545888b827714102dacc,
+        type: 3}
       propertyPath: NumberOfRooms
       value: 10
       objectReference: {fileID: 0}
@@ -2010,8 +2032,32 @@ PrefabInstance:
     - target: {fileID: 2626688053058535367, guid: 57640152e46a545888b827714102dacc,
         type: 3}
       propertyPath: waitTime
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2626688053058535367, guid: 57640152e46a545888b827714102dacc,
+        type: 3}
+      propertyPath: LeftRooms.Array.data[9]
+      value: 
+      objectReference: {fileID: 762685536706766377, guid: 93c32188cdf70bb4da5a6a1a9a3fe74b,
+        type: 3}
+    - target: {fileID: 2626688053058535367, guid: 57640152e46a545888b827714102dacc,
+        type: 3}
+      propertyPath: RightRooms.Array.data[9]
+      value: 
+      objectReference: {fileID: 762685536706766377, guid: 4f6ecf3a107eb974da9e85b92b8e27c3,
+        type: 3}
+    - target: {fileID: 2626688053058535367, guid: 57640152e46a545888b827714102dacc,
+        type: 3}
+      propertyPath: BottomRooms.Array.data[9]
+      value: 
+      objectReference: {fileID: 7108546237762814966, guid: 08d141ee6bc68ad48a0e0bec11ebfc84,
+        type: 3}
+    - target: {fileID: 2626688053058535367, guid: 57640152e46a545888b827714102dacc,
+        type: 3}
+      propertyPath: TopRooms.Array.data[9]
+      value: 
+      objectReference: {fileID: 7108546237762814966, guid: 0028493402674114c8b299031c908850,
+        type: 3}
     - target: {fileID: 2626688053058535384, guid: 57640152e46a545888b827714102dacc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2087,6 +2133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63003df82696ef4baea56d6923f2e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawn: 0
   potSpots:
   - {fileID: 4152614581950502005, guid: 21cb691ed7ad9f2469165d006a9e74dd, type: 3}
   pillarSpots:
@@ -3045,6 +3092,7 @@ MonoBehaviour:
   orderLabel: {fileID: 2917819641976888608}
   playerOneIn: 0
   playerTwoIn: 0
+  roomActive: 0
   enemies: []
   boobyTraps: []
   pots: []

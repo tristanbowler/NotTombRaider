@@ -14,6 +14,7 @@ public class ThiefController : MonoBehaviour
     public bool collisionDetected;
     private Rigidbody rigidBody;
     public float collisionForce = 100;
+    public bool controllsConnected = false;
     void Start()
     {
         rigidBody = this.GetComponent<Rigidbody>();
@@ -39,7 +40,7 @@ public class ThiefController : MonoBehaviour
 
         movement = new Vector3(0, 0, 0);
 
-        if (controller != null && (!controller.stickHorizontal.Equals(0) || !controller.stickVertical.Equals(0)))
+        if (controllsConnected && controller != null && (!controller.stickHorizontal.Equals(0) || !controller.stickVertical.Equals(0)))
         {
             moving = true;
             movement += controller.stickHorizontal * (new Vector3(1, 0, 0));
@@ -50,25 +51,25 @@ public class ThiefController : MonoBehaviour
             if (Input.GetKey(KeyCode.W))
             {
                 //Move forward: Increase Z
-                movement += new Vector3(0, 0, 1);
+                movement += new Vector3(0, 0, moveSpeed);
                 moving = true;
             }
             if (Input.GetKey(KeyCode.S))
             {
                 //Move back: Decrease Z
-                movement += new Vector3(0, 0, -1);
+                movement += new Vector3(0, 0, -1* moveSpeed);
                 moving = true;
             }
             if (Input.GetKey(KeyCode.A))
             {
                 //Move left: Increase X
-                movement += new Vector3(-1, 0, 0);
+                movement += new Vector3(-1*moveSpeed, 0, 0);
                 moving = true;
             }
             if (Input.GetKey(KeyCode.D))
             {
                 //Move right: Decrease X
-                movement += new Vector3(1, 0, 0);
+                movement += new Vector3(moveSpeed, 0, 0);
                 moving = true;
             }
         }

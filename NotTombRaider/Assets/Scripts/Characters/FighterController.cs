@@ -15,6 +15,7 @@ public class FighterController : MonoBehaviour
     public bool collisionDetected;
     private Rigidbody rigidBody;
     public float collisionForce = 100;
+    public bool controllsConnected = false;
     void Start()
     {
         rigidBody = this.GetComponent<Rigidbody>();
@@ -47,7 +48,7 @@ public class FighterController : MonoBehaviour
     {
         Vector3 movement = new Vector3(0, 0, 0);
 
-        if (controller!=null &&(!controller.stickHorizontal.Equals(0) || !controller.stickVertical.Equals(0)))
+        if (controllsConnected && controller!=null &&(!controller.stickHorizontal.Equals(0) || !controller.stickVertical.Equals(0)))
         {
             moving = true;
             movement += controller.stickHorizontal*(new Vector3(1, 0, 0));
@@ -58,25 +59,25 @@ public class FighterController : MonoBehaviour
             if (Input.GetKey(KeyCode.UpArrow))
             {
                 //Move forward: Increase Z
-                movement += new Vector3(0, 0, 1);
+                movement += new Vector3(0, 0, moveSpeed);
                 moving = true;
             }
             if (Input.GetKey(KeyCode.DownArrow))
             {
                 //Move back: Decrease Z
-                movement += new Vector3(0, 0, -1);
+                movement += new Vector3(0, 0, -1*moveSpeed);
                 moving = true;
             }
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 //Move left: Increase X
-                movement += new Vector3(-1, 0, 0);
+                movement += new Vector3(-1*moveSpeed, 0, 0);
                 moving = true;
             }
             if (Input.GetKey(KeyCode.RightArrow))
             {
                 //Move right: Decrease X
-                movement += new Vector3(1, 0, 0);
+                movement += new Vector3(moveSpeed, 0, 0);
                 moving = true;
             }
         }
