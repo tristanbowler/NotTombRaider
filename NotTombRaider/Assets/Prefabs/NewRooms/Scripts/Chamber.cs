@@ -2,13 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chamber : NewRoom
+public class Chamber : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int numRoomCollisions = 0;
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.CompareTag("Room") || other.gameObject.CompareTag("Corridor"))
+        {
+            numRoomCollisions++;
+        }
+
     }
 
-    
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Room") || other.gameObject.CompareTag("Corridor"))
+        {
+            numRoomCollisions--;
+        }
+    }
+
 }

@@ -2,17 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Corridor : NewRoom
+public class Corridor : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int numRoomCollisions = 0;
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.gameObject.CompareTag("Room") || other.gameObject.CompareTag("Corridor"))
+        {
+            numRoomCollisions++;
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        if (other.gameObject.CompareTag("Room") || other.gameObject.CompareTag("Corridor"))
+        {
+            numRoomCollisions--;
+        }
     }
+
+
 }
