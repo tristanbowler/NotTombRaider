@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2932988947364168663}
+  - component: {fileID: 2915300922495872355}
   m_Layer: 0
   m_Name: RoomSpawn
   m_TagString: Untagged
@@ -31,6 +32,25 @@ Transform:
   m_Father: {fileID: 8420578726265395275}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2915300922495872355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607850862932413727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b039ccb113d1e0c469a1ae4e31e09a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: {fileID: 2672106825692408036}
+  deadEnd: {fileID: 7408633294607017418}
+  chambersList:
+  - {fileID: 897029347712292207, guid: 6f75d2139b5271d419f7bba0f4425c9f, type: 3}
+  - {fileID: 2864614565289895691, guid: 72cb4f4fe2191b942a1a55b6f7940c4e, type: 3}
+  - {fileID: 4024564424182346757, guid: afb5f6fb1d40977489d1bb1123bc195d, type: 3}
+  success: 0
 --- !u!1 &2672106825176711437
 GameObject:
   m_ObjectHideFlags: 0

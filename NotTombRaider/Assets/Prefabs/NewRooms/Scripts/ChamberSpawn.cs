@@ -10,6 +10,7 @@ public class ChamberSpawn : MonoBehaviour
     public bool success = false;
     void Start()
     {
+        Spawn();
     }
 
     public void Spawn()
