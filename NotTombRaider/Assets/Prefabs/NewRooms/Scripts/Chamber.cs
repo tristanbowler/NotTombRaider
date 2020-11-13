@@ -7,7 +7,7 @@ public class Chamber : MonoBehaviour
     public int numRoomCollisions = 0;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Room") || other.gameObject.CompareTag("Corridor"))
+        if (other.gameObject.CompareTag("Room") || other.gameObject.CompareTag("Hallway"))
         {
             numRoomCollisions++;
         }
@@ -16,7 +16,7 @@ public class Chamber : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Room") || other.gameObject.CompareTag("Corridor"))
+        if (other.gameObject.CompareTag("Room") || other.gameObject.CompareTag("Hallway"))
         {
             numRoomCollisions--;
         }

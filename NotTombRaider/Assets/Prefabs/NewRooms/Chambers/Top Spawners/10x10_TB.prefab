@@ -26,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 923162641591476890}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.019998549, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: 0, y: 1.5, z: -0.00399971}
+  m_LocalScale: {x: 0.20000003, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 7086415410694129574}
   m_RootOrder: 0
@@ -126,7 +126,7 @@ Transform:
   m_LocalScale: {x: 0.20000009, y: 3, z: 10}
   m_Children: []
   m_Father: {fileID: 6689168466094488373}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2273605451838612584
 MeshFilter:
@@ -294,6 +294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7086415410694129574}
+  - component: {fileID: 113528602225893885}
   m_Layer: 0
   m_Name: HallSpawn
   m_TagString: Room
@@ -308,14 +309,34 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885439737316192817}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 3, z: 3}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -9.900002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3136995499715825705}
-  m_Father: {fileID: 2397921362809583459}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_Father: {fileID: 6689168466094488373}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &113528602225893885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885439737316192817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e92e0f26da6b54dbb217154511d571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: {fileID: 2864614565289895691}
+  deadEnd: {fileID: 923162641591476890}
+  corridorsList:
+  - {fileID: 7654756195416928169, guid: 6e052dfc462178b488b17cb4fca37075, type: 3}
+  - {fileID: 7986242969638611551, guid: 416651f05620567409c279250629de0b, type: 3}
+  - {fileID: 7986242969638611551, guid: ea24c165a501b3d47980d2065000edb1, type: 3}
+  - {fileID: 2672106825692408036, guid: 7869465b475b80846b880d94e39d5b75, type: 3}
+  success: 0
 --- !u!1 &2864614565289895691
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +427,7 @@ Transform:
   m_LocalScale: {x: 0.20000005, y: 3, z: 3.3}
   m_Children: []
   m_Father: {fileID: 2397921362809583459}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &5186200422130127874
 MeshFilter:
@@ -501,7 +522,7 @@ Transform:
   - {fileID: 8315399014234864746}
   - {fileID: 3108047567885101840}
   m_Father: {fileID: 6689168466094488373}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5776295327562835436
 GameObject:
@@ -910,6 +931,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 7086415410694129574}
   - {fileID: 5238897741786062875}
   - {fileID: 1332478706168415170}
   - {fileID: 3359060889557280321}
@@ -949,7 +971,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6689168466094488373}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4848025571243027455
 MeshFilter:
@@ -1045,7 +1067,7 @@ Transform:
   m_LocalScale: {x: 0.20000009, y: 3, z: 10}
   m_Children: []
   m_Father: {fileID: 6689168466094488373}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6361181939378630478
 MeshFilter:
@@ -1138,8 +1160,7 @@ Transform:
   m_Children:
   - {fileID: 3844584084994326381}
   - {fileID: 7305551366492314839}
-  - {fileID: 7086415410694129574}
   - {fileID: 7957306294677996719}
   m_Father: {fileID: 6689168466094488373}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

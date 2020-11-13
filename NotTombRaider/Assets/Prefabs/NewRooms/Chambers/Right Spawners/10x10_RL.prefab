@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8870179878293901626}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2399309347266499591
 MeshFilter:
@@ -127,7 +127,7 @@ Transform:
   m_LocalScale: {x: 0.20000008, y: 3, z: 10}
   m_Children: []
   m_Father: {fileID: 8870179878293901626}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4200978794944680118
 MeshFilter:
@@ -317,7 +317,7 @@ Transform:
   - {fileID: 533996460003271471}
   - {fileID: 893310710722362199}
   m_Father: {fileID: 8870179878293901626}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1529696204750262598
 GameObject:
@@ -328,6 +328,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 536471973923203781}
+  - component: {fileID: 7309476324185109671}
   m_Layer: 0
   m_Name: HallSpawn
   m_TagString: Room
@@ -342,14 +343,34 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529696204750262598}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.20000006, y: 3, z: 3}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.9, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9108486522151118384}
-  m_Father: {fileID: 5257665302543840892}
-  m_RootOrder: 1
+  m_Father: {fileID: 8870179878293901626}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7309476324185109671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529696204750262598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e92e0f26da6b54dbb217154511d571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: {fileID: 5028987465875642611}
+  deadEnd: {fileID: 4380509081445431858}
+  corridorsList:
+  - {fileID: 7654756195416928169, guid: 28189bd4c33b8264f928d3d7593bbebb, type: 3}
+  - {fileID: 7986242969638611551, guid: 13f54a85929b08e47b4a6eb79c7c5859, type: 3}
+  - {fileID: 7986242969638611551, guid: 391e9a17b846eee4eae9d149b5403427, type: 3}
+  - {fileID: 9060070514179470079, guid: a40399fb12395f646b1b220cc806f4a0, type: 3}
+  success: 0
 --- !u!1 &1819838458894425782
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,10 +399,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3218029196054972734}
-  - {fileID: 536471973923203781}
   - {fileID: 8055307627408033148}
   m_Father: {fileID: 8870179878293901626}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1842251806095587329
 GameObject:
@@ -410,6 +430,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 536471973923203781}
   - {fileID: 4849403145706440859}
   - {fileID: 5257665302543840892}
   - {fileID: 5518706855961123257}
@@ -540,8 +561,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4380509081445431858}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.019998549, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.00399971, y: 1.5, z: 0}
+  m_LocalScale: {x: 0.20000012, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 536471973923203781}
   m_RootOrder: 0
@@ -793,7 +814,7 @@ Transform:
   m_LocalScale: {x: 0.20000005, y: 3, z: 3.3}
   m_Children: []
   m_Father: {fileID: 5257665302543840892}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &7715341176053344491
 MeshFilter:
@@ -888,7 +909,7 @@ Transform:
   m_LocalScale: {x: 0.20000008, y: 3, z: 10}
   m_Children: []
   m_Father: {fileID: 8870179878293901626}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9045148543463988112
 MeshFilter:

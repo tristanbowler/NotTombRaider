@@ -8,8 +8,17 @@ public class CorridorSpawn : MonoBehaviour
     public GameObject deadEnd;
     public GameObject[] corridorsList;
     public bool success = false;
+
+
     void Start()
     {
+        StartCoroutine(Delay());
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(Camera.main.gameObject.GetComponent<NewRoomController>().spawnDelay);
+        Spawn();
     }
 
     public void Spawn()
@@ -28,7 +37,7 @@ public class CorridorSpawn : MonoBehaviour
             {
                 if (i != rand)
                 {
-                    corridor = Instantiate(corridorsList[i]);
+                    corridor = Instantiate(corridorsList[i], this.transform);
                     //corridor.transform.parent = this.transform;
                     corridor.transform.position = this.transform.position;
                     corridor.transform.rotation = this.transform.rotation;

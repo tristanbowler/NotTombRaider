@@ -8,8 +8,16 @@ public class ChamberSpawn : MonoBehaviour
     public GameObject deadEnd;
     public GameObject[] chambersList;
     public bool success = false;
+
+
     void Start()
     {
+        StartCoroutine(Delay());
+    }
+
+    IEnumerator Delay()
+    {
+       yield return new WaitForSeconds(Camera.main.gameObject.GetComponent<NewRoomController>().spawnDelay);
         Spawn();
     }
 
@@ -29,8 +37,8 @@ public class ChamberSpawn : MonoBehaviour
             {
                 if (i != rand)
                 {
-                    chamber = Instantiate(chambersList[i]);
-                    //corridor.transform.parent = this.transform;
+                    chamber = Instantiate(chambersList[i], this.transform);
+                    //chamber.transform.parent = this.transform;
                     chamber.transform.position = this.transform.position;
                     chamber.transform.rotation = this.transform.rotation;
                     if (chamber.GetComponent<Corridor>().numRoomCollisions != 0)
