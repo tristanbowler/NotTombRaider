@@ -303,8 +303,10 @@ public abstract class PhysicalMapBehaviour : MonoBehaviour {
 	
 	// Common parameters
 	public bool enabledBatching = false;
-    public bool createPlayer = false;
-	public GameObject playerPrefab;
+    public bool createPlayerThief = false;
+	public GameObject thiefPrefab;
+    public bool createPlayerFighter = false;
+    public GameObject fighterPrefab;
 	public MapPlaneOrientation mapPlaneOrientation;
 
     // Entrance and exit prefab, placed on the starting and ending floor tiles

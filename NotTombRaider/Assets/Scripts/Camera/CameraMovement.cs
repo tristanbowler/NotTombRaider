@@ -18,6 +18,8 @@ public class CameraMovement : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main;
+        thief = GameObject.FindGameObjectWithTag("Player1").transform;
+        fighter = GameObject.FindGameObjectWithTag("Player2").transform;
     }
 
     private void Update()
