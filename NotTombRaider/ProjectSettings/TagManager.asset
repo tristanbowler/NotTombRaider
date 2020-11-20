@@ -18,6 +18,7 @@ TagManager:
   - PillarSpot
   - EnemySpot
   - Hallway
+  - EnemyWeapon
   layers:
   - Default
   - TransparentFX

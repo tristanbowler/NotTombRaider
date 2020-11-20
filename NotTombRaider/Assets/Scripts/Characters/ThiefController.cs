@@ -92,11 +92,19 @@ public class ThiefController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision with " + collision.gameObject.name);
-        collisionDetected = true;
-        Vector3 direction = transform.position - collision.collider.transform.position;
-        direction.Normalize();
-        rigidBody.AddForce(direction * collisionForce);
+        if (collision.gameObject.CompareTag("EnemyWeapon"))
+        {
+            int damage = collision.gameObject.GetComponent<Damage>().damage;
+        }
+        else
+        {
+            Debug.Log("Collision with " + collision.gameObject.name);
+            collisionDetected = true;
+            Vector3 direction = transform.position - collision.collider.transform.position;
+            direction.Normalize();
+            rigidBody.AddForce(direction * collisionForce);
+        }
+        
     }
 
     private void OnCollisionExit(Collision collision)
