@@ -15,12 +15,16 @@ public class GunController : MonoBehaviour
     {
         for(int i = 0; i<clipSize; i++)
         {
-            GameObject bullet = Instantiate(bulletPrefab, this.transform);
+            GameObject bullet = Instantiate(bulletPrefab, this.transform.position, this.transform.rotation, this.transform);
             reload.Add(bullet);
+            bullet.GetComponent<BulletController>().startPosition = this.transform.position;
+            bullet.GetComponent<BulletController>().startRotation = this.transform.rotation;
+            bullet.GetComponent<BulletController>().gun = this;
             bullet.SetActive(false);
         }
     }
 
+   
     // Update is called once per frame
     void Update()
     {
@@ -38,6 +42,7 @@ public class GunController : MonoBehaviour
             reload.Remove(bullet);
             bullet.SetActive(true);
             bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward.normalized* bulletForce);
+            bullet.GetComponent<BulletController>().Line();
         }
     }
 
@@ -45,8 +50,8 @@ public class GunController : MonoBehaviour
     {
         fired.Remove(bullet);
         reload.Add(bullet);
-        bullet.transform.localPosition = bullet.GetComponent<BulletController>().startPosition;
-        bullet.transform.localRotation = bullet.GetComponent<BulletController>().startRotation;
+        //bullet.transform.localPosition = this.transform.position;
+        //bullet.transform.localRotation = this.transform.rotation;
         bullet.SetActive(false);
     }
 
