@@ -8,7 +8,7 @@ public class FalseFire : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetBool("isFire", false);
+        animator.SetBool("isAttack", false);
         startRotation = animator.gameObject.transform.rotation.eulerAngles;
         Debug.Log(animator.gameObject.name + " Start: " + startRotation);
         startRotation.y = startRotation.y + 90;
