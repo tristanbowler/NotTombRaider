@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: isPunch
+    m_ConditionEvent: isAttack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4357196576242165116}
@@ -333,7 +333,7 @@ AnimatorController:
   m_Name: Skele Unarmed
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: isPunch
+  - m_Name: isAttack
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
