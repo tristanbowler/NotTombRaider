@@ -16,10 +16,12 @@ public class HealthContorller : MonoBehaviour
     public int HealthPoints = 100;
     public float percent;
     public GameObject UIBar;
+    public Animator animator;
     
     // Start is called before the first frame update
     void Start()
     {
+        TryGetComponent<Animator>(out animator);
         HealthPoints = TotalHealth;
         percent = 1;
     }
@@ -33,7 +35,8 @@ public class HealthContorller : MonoBehaviour
             if (!isPlayer)
             {
                 isDead = true;
-                this.gameObject.SetActive(false);
+                animator.SetBool("isDeath", true);
+                //this.gameObject.SetActive(false);
             }
             else
             {

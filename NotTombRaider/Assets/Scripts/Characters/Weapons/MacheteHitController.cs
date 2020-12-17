@@ -5,11 +5,14 @@ using UnityEngine;
 public class MacheteHitController : MonoBehaviour
 {
     public bool isPlayerWeapon = true;
+    public Damage damage;
     // Start is called before the first frame update
     public MacheteController macheteController;
+
+
     private void OnCollisionEnter(Collision other)
     {
-        if (macheteController.isSwinging)
+        //if (macheteController.isSwinging)
         {
             if (isPlayerWeapon)
             {
@@ -27,6 +30,7 @@ public class MacheteHitController : MonoBehaviour
                 if (other.gameObject.tag == "Player1" || other.gameObject.tag == "Player2")
                 {
                     other.gameObject.SetActive(false);
+                    int temp = damage.damage;
                 }
                 else
                 {

@@ -51,7 +51,7 @@ public class SkeleController : MonoBehaviour
     {
         if(weaponType == WeaponType.Archer)
         {
-            if (Vector3.Distance(this.transform.position, player1.transform.position) > Vector3.Distance(this.transform.position, player2.transform.position))
+            if (Vector3.Distance(this.transform.position, player1.transform.position) >= Vector3.Distance(this.transform.position, player2.transform.position))
             {
                 targetPlayer = player1;
                 //Debug.Log("Closest Player: player 1");

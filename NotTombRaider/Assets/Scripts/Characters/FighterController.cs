@@ -16,6 +16,9 @@ public class FighterController : MonoBehaviour
     private Rigidbody rigidBody;
     public float collisionForce = 100;
     public bool controllsConnected = false;
+    public Animator animator;
+    public bool shooting;
+    public bool slashing;
     void Start()
     {
         rigidBody = this.GetComponent<Rigidbody>();
@@ -28,20 +31,46 @@ public class FighterController : MonoBehaviour
         CheckGun();
         CheckMachete();
     }
+    IEnumerator WaitForAttack(int waitTime, bool isGun)
+    {
 
+        yield return new WaitForSeconds(waitTime);
+        if (isGun)
+        {
+            shooting = false;
+        }
+        else
+        {
+            slashing = false;
+        }
+    }
+
+    IEnumerator WaitForAim(int waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        gun.FireBullet();
+    }
     private void CheckMachete()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) && !slashing && !shooting)
         {
-            machete.Swing();
+            slashing = true;
+            animator.SetBool("isAttack", true);
+            animator.SetBool("isWalk", false);
+            StartCoroutine(WaitForAttack(3, false));
         }
     }
 
     private void CheckGun()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && !slashing && !shooting)
         {
-            gun.FireBullet();
+            shooting = true;
+            animator.SetBool("isShoot", true);
+            animator.SetBool("isWalk", false);
+            
+            StartCoroutine(WaitForAim(1));
+            StartCoroutine(WaitForAttack(2, true));
         }
     }
     private void CheckMovement()
@@ -95,7 +124,14 @@ public class FighterController : MonoBehaviour
             moving = false;
         }
         
-        
+        if(movement == Vector3.zero)
+        {
+            animator.SetBool("isWalk", false);
+        }
+        else if(!shooting && !slashing)
+        {
+            animator.SetBool("isWalk", true);
+        }
 
     }
 
