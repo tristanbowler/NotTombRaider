@@ -8,6 +8,7 @@ public class BulletController : MonoBehaviour
     public Vector3 startPosition;
     public Quaternion startRotation;
     public GunController gun;
+    public Damage damage;
 
     public Vector3 dest;
     // Start is called before the first frame update
@@ -25,11 +26,7 @@ public class BulletController : MonoBehaviour
 
     }
 
-    private IEnumerator Die()
-    {
-        yield return new WaitForSeconds(2);
-        
-    }
+   
 
     private void Update()
     {
@@ -39,7 +36,7 @@ public class BulletController : MonoBehaviour
 
     void Start()
     {
-       
+        this.damage = this.gameObject.GetComponent<Damage>();
     }
 
     
@@ -49,14 +46,21 @@ public class BulletController : MonoBehaviour
         LineRenderer lr = GetComponent<LineRenderer>();
         lr.enabled = false;
 
-        
-        if(other.gameObject.tag == "Enemy")
+        if (gun.isPlayerWeapon)
         {
-            other.gameObject.SetActive(false);
+            if (other.gameObject.tag == "Enemy")
+            {
+                //other.gameObject.SetActive(false)
+                other.gameObject.GetComponent<HealthContorller>().DoDamage(damage.damage);
+            }
         }
+        
         else
         {
-            Debug.Log("Hit " + other.gameObject.name);
+            if(other.gameObject.tag == "Player1" || other.gameObject.tag == "Player2")
+            {
+                other.gameObject.GetComponent<HealthContorller>().DoDamage(damage.damage);
+            }
         }
         this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         Debug.Log("Gun " + gun.gameObject.transform.position);

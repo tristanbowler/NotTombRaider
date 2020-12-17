@@ -8,6 +8,7 @@ public class MacheteHitController : MonoBehaviour
     public Damage damage;
     // Start is called before the first frame update
     public MacheteController macheteController;
+    public Collider collider;
 
 
     private void OnCollisionEnter(Collision other)
@@ -18,7 +19,8 @@ public class MacheteHitController : MonoBehaviour
             {
                 if (other.gameObject.tag == "Enemy")
                 {
-                    other.gameObject.SetActive(false);
+                    //other.gameObject.SetActive(false);
+                    other.gameObject.GetComponent<HealthContorller>().DoDamage(damage.damage);
                 }
                 else
                 {
@@ -29,7 +31,8 @@ public class MacheteHitController : MonoBehaviour
             {
                 if (other.gameObject.tag == "Player1" || other.gameObject.tag == "Player2")
                 {
-                    other.gameObject.SetActive(false);
+                    //other.gameObject.SetActive(false);
+                    other.gameObject.GetComponent<HealthContorller>().DoDamage(damage.damage);
                     int temp = damage.damage;
                 }
                 else

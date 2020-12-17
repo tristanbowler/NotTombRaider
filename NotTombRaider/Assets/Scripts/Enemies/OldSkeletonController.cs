@@ -48,7 +48,7 @@ public class OldSkeletonController : EnemyController
     {
         if((Vector3.Distance(this.transform.position, closestPlayer.transform.position) < 2 * agent.stoppingDistance) && attackAvailable)
         {
-            machete.Swing();
+            //machete.Swing();
             attackAvailable = false;
             StartCoroutine(AttackCoolDown());
         }

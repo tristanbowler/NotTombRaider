@@ -11,6 +11,7 @@ public class GunController : MonoBehaviour
     public int clipSize;
     public bool coolDown = false;
     public float bulletForce = 10;
+    public bool isPlayerWeapon;
     void Start()
     {
         for(int i = 0; i<clipSize; i++)
@@ -43,9 +44,16 @@ public class GunController : MonoBehaviour
             bullet.SetActive(true);
             bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward.normalized* bulletForce);
             bullet.GetComponent<BulletController>().Line();
+            StartCoroutine(Die(bullet.gameObject));
         }
     }
 
+    private IEnumerator Die(GameObject bullet)
+    {
+        yield return new WaitForSeconds(2);
+        Reload(bullet);
+
+    }
     public void Reload(GameObject bullet)
     {
         fired.Remove(bullet);

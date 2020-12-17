@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Policy;
 using UnityEngine;
 
 public class FighterController : MonoBehaviour
@@ -19,6 +20,7 @@ public class FighterController : MonoBehaviour
     public Animator animator;
     public bool shooting;
     public bool slashing;
+    public HealthContorller healthController;
     void Start()
     {
         rigidBody = this.GetComponent<Rigidbody>();
@@ -30,6 +32,15 @@ public class FighterController : MonoBehaviour
         CheckMovement();
         CheckGun();
         CheckMachete();
+        CheckReSpawn();
+    }
+
+    private void CheckReSpawn()
+    {
+        if(Input.GetKeyDown(KeyCode.Y) && healthController.isDead)
+        {
+            healthController.Respawn();
+        }
     }
     IEnumerator WaitForAttack(int waitTime, bool isGun)
     {

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3715988645418539408}
   - component: {fileID: 7654517653571792810}
   - component: {fileID: 6059634650011086504}
+  - component: {fileID: -2093743580242776926}
   m_Layer: 13
   m_Name: Bullet
   m_TagString: Untagged
@@ -115,6 +116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPosition: {x: 0, y: 0, z: 0}
   startRotation: {x: 0, y: 0, z: 0, w: 0}
+  gun: {fileID: 0}
+  damage: {fileID: -2093743580242776926}
   dest: {x: 0, y: 0, z: 0}
 --- !u!135 &7654517653571792810
 SphereCollider:
@@ -127,7 +130,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!120 &6059634650011086504
 LineRenderer:
@@ -236,3 +239,16 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &-2093743580242776926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5752296178877452190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418794215b4cd9941a3cb10e22c8ea9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
