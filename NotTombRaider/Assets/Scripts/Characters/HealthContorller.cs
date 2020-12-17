@@ -90,6 +90,7 @@ public class HealthContorller : MonoBehaviour
     {
         HealthPoints = TotalHealth;
         UpdateUI();
+        isDead = false;
         animator.SetBool("isDeath", false);
         deathParticles.SetActive(false);
         respawnParticles.SetActive(true);

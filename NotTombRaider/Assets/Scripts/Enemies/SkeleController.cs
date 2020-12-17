@@ -16,8 +16,8 @@ public class SkeleController : MonoBehaviour
     public int attackRange = 2;
     private GameObject targetPlayer;
     private NavMeshAgent agent;
-    private GameObject player1;
-    private GameObject player2;
+    private HealthContorller player1;
+    private HealthContorller player2;
     private Animator animator;
     private EnemyParticleController particles;
     //public MacheteController machete;
@@ -28,22 +28,27 @@ public class SkeleController : MonoBehaviour
         animator = this.gameObject.GetComponent<Animator>();
         particles = this.gameObject.GetComponent<EnemyParticleController>();
         particles.Spawn();
-        player1 = GameObject.FindGameObjectWithTag("Player1");
-        player2 = GameObject.FindGameObjectWithTag("Player2");
+        player1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<HealthContorller>();
+        player2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<HealthContorller>();
 
         if (agent == null)
         {
             agent = this.GetComponent<NavMeshAgent>();
         }
 
-        GetTarget();
-
-        
-        animator.SetBool("isWalk", true);
         agent.enabled = true;
-        agent.destination = targetPlayer.transform.position;
-        agent.isStopped = false;
-        agent.SetDestination(targetPlayer.transform.position);
+        GetTarget();
+        if(targetPlayer != null)
+        {
+            animator.SetBool("isWalk", true);
+            agent.isStopped = false;
+        }
+        
+        
+        
+        //agent.destination = targetPlayer.transform.position;
+        
+        //agent.SetDestination(targetPlayer.transform.position);
 
     }
 
@@ -51,7 +56,7 @@ public class SkeleController : MonoBehaviour
     {
         if(weaponType == WeaponType.Archer)
         {
-            if (Vector3.Distance(this.transform.position, player1.transform.position) >= Vector3.Distance(this.transform.position, player2.transform.position))
+           /* if (Vector3.Distance(this.transform.position, player1.transform.position) >= Vector3.Distance(this.transform.position, player2.transform.position))
             {
                 targetPlayer = player1;
                 //Debug.Log("Closest Player: player 1");
@@ -60,37 +65,81 @@ public class SkeleController : MonoBehaviour
             {
                 targetPlayer = player2;
                 //Debug.Log("Closest Player: player 2");
-            }
+            }*/
         }
         else
         {
-            if (Vector3.Distance(this.transform.position, player1.transform.position) <= Vector3.Distance(this.transform.position, player2.transform.position))
+            Debug.Log(player1.gameObject.transform.position);
+            if (Vector3.Distance(this.transform.position, player1.gameObject.transform.position) <= Vector3.Distance(this.transform.position, player2.gameObject.transform.position))
             {
-                targetPlayer = player1;
+                if (!player1.isDead)
+                {
+                    targetPlayer = player1.gameObject;
+                }
+                else if (!player2.isDead)
+                {
+                    targetPlayer = player2.gameObject;
+                }
+                else
+                {
+                    targetPlayer = null;
+                }
+                
                 //Debug.Log("Closest Player: player 1");
             }
             else
             {
-                targetPlayer = player2;
-                //Debug.Log("Closest Player: player 2");
+                if (!player2.isDead)
+                {
+                    targetPlayer = player2.gameObject;
+                }
+                else if (!player1.isDead)
+                {
+                    targetPlayer = player1.gameObject;
+                }
+                else
+                {
+                    targetPlayer = null;
+                }
             }
         }
-        if (agent!=null && agent.enabled)
+        if (targetPlayer!=null)
         {
             agent.destination = targetPlayer.transform.position;
             agent.SetDestination(targetPlayer.transform.position);
         }
+        else
+        {
+            agent.SetDestination(gameObject.transform.position);
+            agent.destination = gameObject.transform.position;
+        }
         
+        if(targetPlayer == player1.gameObject)
+        {
+            Debug.Log("Player 1 is target");
+        }
+        else if(targetPlayer == player2.gameObject)
+        {
+            Debug.Log("Player 2 is target");
+        }
+        else
+        {
+            Debug.Log("Both Players are dead. No target");
+        }
     }
     private IEnumerator AttackCoolDown()
     {
         yield return new WaitForSeconds(attackCoolDownTime);
         attackAvailable = true;
-        animator.SetBool("isWalk", true);
-        agent.enabled = true;
-        agent.destination = targetPlayer.transform.position;
-        agent.isStopped = false;
-        agent.SetDestination(targetPlayer.transform.position);
+        if (targetPlayer != null)
+        {
+            animator.SetBool("isWalk", true);
+            agent.enabled = true;
+            agent.destination = targetPlayer.transform.position;
+            agent.isStopped = false;
+            agent.SetDestination(targetPlayer.transform.position);
+        }
+        
 
     }
     private void CheckAttack()
@@ -118,26 +167,30 @@ public class SkeleController : MonoBehaviour
     {
         GetTarget();
 
-        
-        
-        if(Vector3.Distance(this.transform.position, targetPlayer.transform.position) <= agent.stoppingDistance )
-        {
-            animator.SetBool("isWalk", false);
-            transform.LookAt(targetPlayer.transform);
-        }
-        if (!attackAvailable)
-        {
 
-            //animator.SetBool("isWalk", false);
-        }
-        else
+        if (targetPlayer != null)
         {
-            animator.SetBool("isWalk", true);
-            //transform.LookAt(targetPlayer.transform);
-            //agent.isStopped = false;
-           
+            if (Vector3.Distance(this.transform.position, targetPlayer.transform.position) <= agent.stoppingDistance)
+            {
+                animator.SetBool("isWalk", false);
+                transform.LookAt(targetPlayer.transform);
+            }
+            if (!attackAvailable)
+            {
+
+                //animator.SetBool("isWalk", false);
+            }
+            else
+            {
+                animator.SetBool("isWalk", true);
+                //transform.LookAt(targetPlayer.transform);
+                //agent.isStopped = false;
+
+            }
+            CheckAttack();
         }
-        CheckAttack();
+
+        
     }
     // Update is called once per frame
 

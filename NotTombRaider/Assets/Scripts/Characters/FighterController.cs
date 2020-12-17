@@ -87,52 +87,61 @@ public class FighterController : MonoBehaviour
     private void CheckMovement()
     {
         Vector3 movement = new Vector3(0, 0, 0);
+        if(rigidBody.velocity!=Vector3.zero && !collisionDetected)
+        {
+            rigidBody.velocity = Vector3.zero;
+            rigidBody.angularVelocity = Vector3.zero;
+        }
+        if (!healthController.isDead)
+        {
+            
 
-        if (controllsConnected && controller!=null &&(!controller.stickHorizontal.Equals(0) || !controller.stickVertical.Equals(0)))
-        {
-            moving = true;
-            movement += controller.stickHorizontal*(new Vector3(1, 0, 0));
-            movement += controller.stickVertical * (new Vector3(0, 0, 1));
-        }
-        else
-        {
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (controllsConnected && controller != null && (!controller.stickHorizontal.Equals(0) || !controller.stickVertical.Equals(0)))
             {
-                //Move forward: Increase Z
-                movement += new Vector3(0, 0, moveSpeed);
                 moving = true;
+                movement += controller.stickHorizontal * (new Vector3(1, 0, 0));
+                movement += controller.stickVertical * (new Vector3(0, 0, 1));
             }
-            if (Input.GetKey(KeyCode.DownArrow))
+            else
             {
-                //Move back: Decrease Z
-                movement += new Vector3(0, 0, -1*moveSpeed);
-                moving = true;
+                if (Input.GetKey(KeyCode.UpArrow))
+                {
+                    //Move forward: Increase Z
+                    movement += new Vector3(0, 0, moveSpeed);
+                    moving = true;
+                }
+                if (Input.GetKey(KeyCode.DownArrow))
+                {
+                    //Move back: Decrease Z
+                    movement += new Vector3(0, 0, -1 * moveSpeed);
+                    moving = true;
+                }
+                if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    //Move left: Increase X
+                    movement += new Vector3(-1 * moveSpeed, 0, 0);
+                    moving = true;
+                }
+                if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    //Move right: Decrease X
+                    movement += new Vector3(moveSpeed, 0, 0);
+                    moving = true;
+                }
             }
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (moving && !collisionDetected)
             {
-                //Move left: Increase X
-                movement += new Vector3(-1*moveSpeed, 0, 0);
-                moving = true;
+                movement = movement.normalized;
+                transform.position += movement * moveSpeed * Time.deltaTime;
+                Vector3 xzDirection = new Vector3(movement.x, 0, movement.z);
+                if (xzDirection.magnitude > 0)
+                {
+                    targetRotation = Quaternion.LookRotation(xzDirection);
+                }
+
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, degreesPerSecond * Time.deltaTime);
+                moving = false;
             }
-            if (Input.GetKey(KeyCode.RightArrow))
-            {
-                //Move right: Decrease X
-                movement += new Vector3(moveSpeed, 0, 0);
-                moving = true;
-            }
-        }
-        if (moving && !collisionDetected)
-        {
-            movement = movement.normalized;
-            transform.position += movement * moveSpeed * Time.deltaTime;
-            Vector3 xzDirection = new Vector3(movement.x, 0, movement.z);
-            if (xzDirection.magnitude > 0)
-            {
-                targetRotation = Quaternion.LookRotation(xzDirection);
-            }
-                
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, degreesPerSecond * Time.deltaTime);
-            moving = false;
         }
         
         if(movement == Vector3.zero)
@@ -148,17 +157,17 @@ public class FighterController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        collisionDetected = true;
-        Vector3 direction = transform.position - collision.collider.transform.position;
-        direction.Normalize();
-        rigidBody.AddForce(direction * collisionForce);
+        //collisionDetected = true;
+        //Vector3 direction = transform.position - collision.collider.transform.position;
+        //direction.Normalize();
+        //rigidBody.AddForce(direction * collisionForce);
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        collisionDetected = false;
+        //collisionDetected = false;
         //rigidBody.velocity = Vector3.Lerp(rigidBody.velocity, Vector3.zero, 0.90f);
-        rigidBody.velocity = Vector3.zero;
-        rigidBody.angularVelocity = Vector3.zero;
+        //rigidBody.velocity = Vector3.zero;
+        //rigidBody.angularVelocity = Vector3.zero;
     }
 }
