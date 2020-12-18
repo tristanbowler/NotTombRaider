@@ -73,7 +73,7 @@ AnimatorStateMachine:
     m_Position: {x: 60, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4320735722216714160}
-    m_Position: {x: 270, y: 310, z: 0}
+    m_Position: {x: 310, y: 310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5679057538834984133}
     m_Position: {x: 60, y: 540, z: 0}
@@ -102,7 +102,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Pistol Attack
-  m_Speed: 3
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1431165557604512645}
@@ -116,7 +116,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 719750dba36e4c34eba34bde815823ec,
+  m_Motion: {fileID: -203655887218126122, guid: 96e36dfd4644d1646a1d140ccfb06f86,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
