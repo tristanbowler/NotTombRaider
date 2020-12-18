@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Microsoft.Unity.VisualStudio.Editor;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,6 +18,12 @@ public class HideAndShow : MonoBehaviour
         {
             r.enabled = false;
         }
+
+        Canvas[] images = gameObject.GetComponentsInChildren<Canvas>();
+        foreach(Canvas i in images)
+        {
+            i.gameObject.SetActive(false);
+        }
     }
     public void Show()
     {
@@ -24,6 +31,12 @@ public class HideAndShow : MonoBehaviour
         foreach (Renderer r in rends)
         {
             r.enabled = true;
+        }
+
+        Canvas[] images = gameObject.GetComponentsInChildren<Canvas>();
+        foreach (Canvas i in images)
+        {
+            i.gameObject.SetActive(true);
         }
     }
 }
