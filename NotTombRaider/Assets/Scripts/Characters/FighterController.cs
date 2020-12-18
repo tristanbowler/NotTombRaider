@@ -58,6 +58,7 @@ public class FighterController : MonoBehaviour
 
     IEnumerator WaitForAim(float waitTime)
     {
+        gun.fireParticles.SetActive(true);
         yield return new WaitForSeconds(waitTime);
         gun.FireBullet();
     }
