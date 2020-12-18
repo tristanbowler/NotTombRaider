@@ -42,7 +42,7 @@ public class FighterController : MonoBehaviour
             healthController.Respawn();
         }
     }
-    IEnumerator WaitForAttack(int waitTime, bool isGun)
+    IEnumerator WaitForAttack(float waitTime, bool isGun)
     {
 
         yield return new WaitForSeconds(waitTime);
@@ -56,7 +56,7 @@ public class FighterController : MonoBehaviour
         }
     }
 
-    IEnumerator WaitForAim(int waitTime)
+    IEnumerator WaitForAim(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
         gun.FireBullet();
@@ -80,7 +80,7 @@ public class FighterController : MonoBehaviour
             animator.SetBool("isShoot", true);
             animator.SetBool("isWalk", false);
             
-            StartCoroutine(WaitForAim(1));
+            StartCoroutine(WaitForAim(1.1f));
             StartCoroutine(WaitForAttack(2, true));
         }
     }

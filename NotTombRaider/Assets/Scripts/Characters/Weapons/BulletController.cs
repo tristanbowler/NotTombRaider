@@ -30,7 +30,8 @@ public class BulletController : MonoBehaviour
 
     private void Update()
     {
-        Line();
+        //Line();
+
     }
 
 

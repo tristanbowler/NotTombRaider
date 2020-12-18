@@ -59,7 +59,7 @@ public class ThiefController : MonoBehaviour
 
     private void CheckMele()
     {
-        if(Input.GetKey(KeyCode.E))
+        if(Input.GetKey(KeyCode.E) && !healthController.isDead)
         {
             //whip.SnapWhip();
             animator.SetBool("isMele", true);
@@ -68,7 +68,7 @@ public class ThiefController : MonoBehaviour
 
     private void CheckTorch()
     {
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q) && !healthController.isDead)
         {
             //whip.SnapWhip();
             animator.SetBool("isTorch", true);
