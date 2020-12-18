@@ -19,11 +19,7 @@ public class HideAndShow : MonoBehaviour
             r.enabled = false;
         }
 
-        Canvas[] images = gameObject.GetComponentsInChildren<Canvas>();
-        foreach(Canvas i in images)
-        {
-            i.gameObject.SetActive(false);
-        }
+        
     }
     public void Show()
     {
@@ -33,10 +29,6 @@ public class HideAndShow : MonoBehaviour
             r.enabled = true;
         }
 
-        Canvas[] images = gameObject.GetComponentsInChildren<Canvas>();
-        foreach (Canvas i in images)
-        {
-            i.gameObject.SetActive(true);
-        }
+        
     }
 }

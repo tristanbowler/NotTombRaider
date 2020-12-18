@@ -12,6 +12,7 @@ public class GunController : MonoBehaviour
     public bool coolDown = false;
     public float bulletForce = 10;
     public bool isPlayerWeapon;
+    public GameObject player;
     void Start()
     {
         for(int i = 0; i<clipSize; i++)

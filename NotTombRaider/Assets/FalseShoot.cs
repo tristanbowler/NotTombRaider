@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class FalseShoot : StateMachineBehaviour
 {
+    private Vector3 startRotation;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetBool("isShoot", false); 
+        animator.SetBool("isShoot", false);
+        startRotation = animator.gameObject.transform.rotation.eulerAngles;
+        Debug.Log(animator.gameObject.name + " Start: " + startRotation);
+        startRotation.y = startRotation.y + 45;
+        animator.gameObject.transform.rotation = Quaternion.Euler(startRotation);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -17,10 +22,11 @@ public class FalseShoot : StateMachineBehaviour
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        startRotation.y = startRotation.y - 45;
+        animator.gameObject.transform.rotation = Quaternion.Euler(startRotation);
+    }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
