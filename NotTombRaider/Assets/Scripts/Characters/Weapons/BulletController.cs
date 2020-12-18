@@ -52,6 +52,7 @@ public class BulletController : MonoBehaviour
             {
                 //other.gameObject.SetActive(false)
                 other.gameObject.GetComponent<HealthContorller>().DoDamage(damage.damage);
+
             }
         }
         
