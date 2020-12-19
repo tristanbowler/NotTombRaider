@@ -19,6 +19,8 @@ public class ThiefController : MonoBehaviour
     public HealthContorller healthController;
     public bool isTorch;
     public bool isMele;
+    public Collider meleCollider;
+    public Collider torchCollider;
     void Start()
     {
         rigidBody = this.GetComponent<Rigidbody>();
@@ -42,10 +44,12 @@ public class ThiefController : MonoBehaviour
         if (torch)
         {
             isTorch = false;
+            torchCollider.enabled = false;
         }
         else
         {
             isMele = false;
+            meleCollider.enabled = false;
         }
     }
 
@@ -62,6 +66,7 @@ public class ThiefController : MonoBehaviour
         if(Input.GetKey(KeyCode.E) && !healthController.isDead && !isTorch && !isMele)
         {
             isMele = true;
+            meleCollider.enabled = true;
             animator.SetBool("isMele", true);
             StartCoroutine(WaitForAttack(2.5f, false));
         }
@@ -72,6 +77,7 @@ public class ThiefController : MonoBehaviour
         if (Input.GetKey(KeyCode.Q) && !healthController.isDead && !isTorch && !isMele)
         {
             isTorch = true;
+            torchCollider.enabled = true;
             animator.SetBool("isTorch", true);
             StartCoroutine(WaitForAttack(3.5f, true));
         }
@@ -82,9 +88,6 @@ public class ThiefController : MonoBehaviour
         movement = new Vector3(0, 0, 0);
         if (!healthController.isDead)
         {
-
-
-            
 
             if (controllsConnected && controller != null && (!controller.stickHorizontal.Equals(0) || !controller.stickVertical.Equals(0)))
             {
