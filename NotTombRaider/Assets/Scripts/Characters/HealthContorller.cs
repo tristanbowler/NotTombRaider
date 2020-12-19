@@ -32,6 +32,7 @@ public class HealthContorller : MonoBehaviour
         percent = 1;
         Vector2 size = UIBar.GetComponent<RectTransform>().sizeDelta;
         StartWidth = size.x;
+        livesController = Camera.main.GetComponent<LivesController>();
     }
 
     public void DoDamage(int damage)
@@ -88,11 +89,13 @@ public class HealthContorller : MonoBehaviour
 
     public void Respawn()
     {
+        livesController.RemoveLife();
         HealthPoints = TotalHealth;
         UpdateUI();
         isDead = false;
         animator.SetBool("isDeath", false);
         deathParticles.SetActive(false);
         respawnParticles.SetActive(true);
+        
     }
 }

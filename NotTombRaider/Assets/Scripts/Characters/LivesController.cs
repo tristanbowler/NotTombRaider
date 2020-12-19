@@ -11,12 +11,14 @@ public class LivesController : MonoBehaviour
     public int currentLives;
     public int startLives;
     public int maxLives;
-
+    public int PoitionHP;
+    public List<GameObject> hearts;
 
     private void Start()
     {
         Thief = GameObject.FindGameObjectWithTag("Player1");
         Fighter = GameObject.FindGameObjectWithTag("Player2");
+        hearts = new List<GameObject>();
         for(int i=0; i<startLives; i++)
         {
             AddLife();
@@ -28,7 +30,8 @@ public class LivesController : MonoBehaviour
         if(currentLives < maxLives)
         {
             currentLives++;
-            Instantiate(livesPrefab, livesPanel.transform);
+            GameObject heart = Instantiate(livesPrefab, livesPanel.transform);
+            hearts.Add(heart);
         }
     }
 
@@ -37,8 +40,7 @@ public class LivesController : MonoBehaviour
         if (currentLives > 0)
         {
             currentLives--;
-            Transform[] lives = livesPanel.GetComponents<Transform>();
-            Destroy(lives[lives.Length - 1].gameObject);
+            Destroy(hearts[hearts.Count -1]);
         }
     }
 
