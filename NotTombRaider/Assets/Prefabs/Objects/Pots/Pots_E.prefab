@@ -1,5 +1,61 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &6660368899977414303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4523674327206532793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e5bb0745e42024aac69607da9cf727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exploPrefab: {fileID: 400000, guid: 2ba3fe6e50ea7cf4c83a10d555ddf2e2, type: 3}
+  smokePrefab: {fileID: 400000, guid: 0cb04b06304f17e4a800c12222a8bb05, type: 3}
+--- !u!136 &6055503732567328748
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4523674327206532793}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.31584895
+  m_Height: 1.2074072
+  m_Direction: 1
+  m_Center: {x: -0.00022155046, y: 0.6037036, z: -0.0000036209822}
+--- !u!114 &8227129890577297275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5707887698461504679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e5bb0745e42024aac69607da9cf727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exploPrefab: {fileID: 400000, guid: 2ba3fe6e50ea7cf4c83a10d555ddf2e2, type: 3}
+  smokePrefab: {fileID: 400000, guid: 0cb04b06304f17e4a800c12222a8bb05, type: 3}
+--- !u!136 &8536088778256159662
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5707887698461504679}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.36644766
+  m_Height: 0.5462782
+  m_Direction: 1
+  m_Center: {x: 0.0000016540289, y: 0.27051416, z: 0}
 --- !u!1 &6581550125786258705
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +66,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9026591269267971720}
   m_Layer: 0
-  m_Name: PotArrangement_E
+  m_Name: Pots_E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,6 +162,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 201119708e222a743830402aa01dac2f, type: 3}
+--- !u!1 &4523674327206532793 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 201119708e222a743830402aa01dac2f,
+    type: 3}
+  m_PrefabInstance: {fileID: 3604630144485829608}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3858601340964129795 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 201119708e222a743830402aa01dac2f,
@@ -186,6 +248,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 627130941f7e97747af7fcd5b5726463, type: 3}
+--- !u!1 &5707887698461504679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 627130941f7e97747af7fcd5b5726463,
+    type: 3}
+  m_PrefabInstance: {fileID: 4897405450809739766}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4935291197568511517 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 627130941f7e97747af7fcd5b5726463,

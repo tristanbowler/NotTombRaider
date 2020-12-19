@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6825790924770836701}
   - component: {fileID: 6219308919797488266}
   - component: {fileID: 7954479948921967527}
+  - component: {fileID: 67603270130680113}
+  - component: {fileID: 4511376904121085140}
   m_Layer: 0
   m_Name: Pot_A (2)
   m_TagString: Untagged
@@ -85,6 +87,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &67603270130680113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722328469518567222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e5bb0745e42024aac69607da9cf727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exploPrefab: {fileID: 400000, guid: 2ba3fe6e50ea7cf4c83a10d555ddf2e2, type: 3}
+  smokePrefab: {fileID: 400000, guid: 0cb04b06304f17e4a800c12222a8bb05, type: 3}
+--- !u!136 &4511376904121085140
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722328469518567222}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.29745793
+  m_Height: 0.76143736
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.37977734, z: 0}
 --- !u!1 &2314893584130709537
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1587880951808562239}
   m_Layer: 0
-  m_Name: PotArrangement_C
+  m_Name: Pots_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,6 +163,8 @@ GameObject:
   - component: {fileID: 6168681673867686060}
   - component: {fileID: 2413219049337479686}
   - component: {fileID: 80921564146475044}
+  - component: {fileID: 1471183487762416222}
+  - component: {fileID: 8973618302369416402}
   m_Layer: 0
   m_Name: Pot_A (1)
   m_TagString: Untagged
@@ -206,6 +238,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1471183487762416222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3391827579668534501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e5bb0745e42024aac69607da9cf727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exploPrefab: {fileID: 400000, guid: 2ba3fe6e50ea7cf4c83a10d555ddf2e2, type: 3}
+  smokePrefab: {fileID: 400000, guid: 0cb04b06304f17e4a800c12222a8bb05, type: 3}
+--- !u!136 &8973618302369416402
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3391827579668534501}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.29745793
+  m_Height: 0.76143736
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.37977734, z: 0}
 --- !u!1 &4871505534887509803
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +278,8 @@ GameObject:
   - component: {fileID: 7347427056179520674}
   - component: {fileID: 3147860105094637743}
   - component: {fileID: 4110978395722029862}
+  - component: {fileID: 4074575348601639000}
+  - component: {fileID: 6633630157304580962}
   m_Layer: 0
   m_Name: Pot_C (2)
   m_TagString: Untagged
@@ -291,6 +353,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4074575348601639000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4871505534887509803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e5bb0745e42024aac69607da9cf727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exploPrefab: {fileID: 400000, guid: 2ba3fe6e50ea7cf4c83a10d555ddf2e2, type: 3}
+  smokePrefab: {fileID: 400000, guid: 0cb04b06304f17e4a800c12222a8bb05, type: 3}
+--- !u!136 &6633630157304580962
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4871505534887509803}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.31584895
+  m_Height: 1.2074072
+  m_Direction: 1
+  m_Center: {x: -0.00022155046, y: 0.6037036, z: -0.0000036209822}
 --- !u!1 &6732963181131640249
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +393,8 @@ GameObject:
   - component: {fileID: 6402479086101456729}
   - component: {fileID: 5119507431566542559}
   - component: {fileID: 8235651204690350877}
+  - component: {fileID: 2624677326123495934}
+  - component: {fileID: 7145566649393640801}
   m_Layer: 0
   m_Name: Pot_C (1)
   m_TagString: Untagged
@@ -376,3 +468,31 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2624677326123495934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6732963181131640249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e5bb0745e42024aac69607da9cf727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exploPrefab: {fileID: 400000, guid: 2ba3fe6e50ea7cf4c83a10d555ddf2e2, type: 3}
+  smokePrefab: {fileID: 400000, guid: 0cb04b06304f17e4a800c12222a8bb05, type: 3}
+--- !u!136 &7145566649393640801
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6732963181131640249}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.31584895
+  m_Height: 1.2074072
+  m_Direction: 1
+  m_Center: {x: -0.00022155046, y: 0.6037036, z: -0.0000036209822}

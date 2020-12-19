@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3682724614308433206}
   - component: {fileID: 5056814090138934187}
   - component: {fileID: 2290643956633151224}
+  - component: {fileID: 6850000824885181508}
+  - component: {fileID: 9178025671963509978}
   m_Layer: 0
   m_Name: Pot_C
   m_TagString: Untagged
@@ -85,6 +87,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6850000824885181508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3235401661495942074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e5bb0745e42024aac69607da9cf727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exploPrefab: {fileID: 400000, guid: 2ba3fe6e50ea7cf4c83a10d555ddf2e2, type: 3}
+  smokePrefab: {fileID: 400000, guid: 0cb04b06304f17e4a800c12222a8bb05, type: 3}
+--- !u!136 &9178025671963509978
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3235401661495942074}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.31584895
+  m_Height: 1.2074072
+  m_Direction: 1
+  m_Center: {x: -0.00022155046, y: 0.6037036, z: -0.0000036209822}
 --- !u!1 &7078510714644023369
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9207427438133420627}
   m_Layer: 0
-  m_Name: PotArrangement_A
+  m_Name: Pots_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,6 +162,8 @@ GameObject:
   - component: {fileID: 6825815260396267886}
   - component: {fileID: 2953141155059740980}
   - component: {fileID: 7029954723125078165}
+  - component: {fileID: 2841138529627892859}
+  - component: {fileID: 5999123149425398309}
   m_Layer: 0
   m_Name: Pot_A
   m_TagString: Untagged
@@ -205,6 +237,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2841138529627892859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7852553207408211807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e5bb0745e42024aac69607da9cf727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exploPrefab: {fileID: 400000, guid: 2ba3fe6e50ea7cf4c83a10d555ddf2e2, type: 3}
+  smokePrefab: {fileID: 400000, guid: 0cb04b06304f17e4a800c12222a8bb05, type: 3}
+--- !u!136 &5999123149425398309
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7852553207408211807}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.29745793
+  m_Height: 0.76143736
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.37977734, z: 0}
 --- !u!1 &9199993681342765778
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,6 +277,8 @@ GameObject:
   - component: {fileID: 7676171967432689662}
   - component: {fileID: 6997425766489903058}
   - component: {fileID: 8282758211343163874}
+  - component: {fileID: 4150887825972558113}
+  - component: {fileID: 5094515693026892548}
   m_Layer: 0
   m_Name: Pot_B
   m_TagString: Untagged
@@ -290,3 +352,31 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4150887825972558113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9199993681342765778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e5bb0745e42024aac69607da9cf727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exploPrefab: {fileID: 400000, guid: 2ba3fe6e50ea7cf4c83a10d555ddf2e2, type: 3}
+  smokePrefab: {fileID: 400000, guid: 0cb04b06304f17e4a800c12222a8bb05, type: 3}
+--- !u!136 &5094515693026892548
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9199993681342765778}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.36644766
+  m_Height: 0.5462782
+  m_Direction: 1
+  m_Center: {x: 0.0000016540289, y: 0.27051416, z: 0}
