@@ -7,6 +7,7 @@ public class FalseDeath : StateMachineBehaviour
 {
     float timeElapsed;
     float startTime;
+    public float deactivateTime = 3;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -20,7 +21,7 @@ public class FalseDeath : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         timeElapsed = Time.time - startTime;
-        if(timeElapsed > 4)
+        if(timeElapsed > deactivateTime)
         {
             animator.gameObject.SetActive(false);
         }

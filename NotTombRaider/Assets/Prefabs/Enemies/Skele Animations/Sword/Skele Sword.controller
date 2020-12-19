@@ -276,6 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a11a84232086423478e0eb18d2567d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deactivateTime: 4
 --- !u!1102 &-589969923633439168
 AnimatorState:
   serializedVersion: 5
@@ -326,7 +327,7 @@ AnimatorStateMachine:
     m_Position: {x: 190, y: 410, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6804844203796659681}
-    m_Position: {x: 682.41205, y: 296.79514, z: 0}
+    m_Position: {x: 680, y: 270, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

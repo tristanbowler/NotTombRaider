@@ -41,6 +41,7 @@ public class LivesController : MonoBehaviour
         {
             currentLives--;
             Destroy(hearts[hearts.Count -1]);
+            hearts.Remove(hearts[hearts.Count - 1]);
         }
     }
 
