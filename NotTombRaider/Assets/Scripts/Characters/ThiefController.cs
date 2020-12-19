@@ -35,11 +35,11 @@ public class ThiefController : MonoBehaviour
         CheckReSpawn();
     }
 
-    IEnumerator WaitForAttack(int waitTime, bool isTorch)
+    IEnumerator WaitForAttack(float waitTime, bool torch)
     {
 
         yield return new WaitForSeconds(waitTime);
-        if (isTorch)
+        if (torch)
         {
             isTorch = false;
         }
@@ -59,19 +59,21 @@ public class ThiefController : MonoBehaviour
 
     private void CheckMele()
     {
-        if(Input.GetKey(KeyCode.E) && !healthController.isDead)
+        if(Input.GetKey(KeyCode.E) && !healthController.isDead && !isTorch && !isMele)
         {
-            //whip.SnapWhip();
+            isMele = true;
             animator.SetBool("isMele", true);
+            StartCoroutine(WaitForAttack(2.5f, false));
         }
     }
 
     private void CheckTorch()
     {
-        if (Input.GetKey(KeyCode.Q) && !healthController.isDead)
+        if (Input.GetKey(KeyCode.Q) && !healthController.isDead && !isTorch && !isMele)
         {
-            //whip.SnapWhip();
+            isTorch = true;
             animator.SetBool("isTorch", true);
+            StartCoroutine(WaitForAttack(3.5f, true));
         }
     }
 

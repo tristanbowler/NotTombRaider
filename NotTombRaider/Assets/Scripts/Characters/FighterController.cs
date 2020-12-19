@@ -64,7 +64,7 @@ public class FighterController : MonoBehaviour
     }
     private void CheckMachete()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && !slashing && !shooting)
+        if (Input.GetKeyDown(KeyCode.Return) && !slashing && !shooting && !healthController.isDead)
         {
             slashing = true;
             animator.SetBool("isAttack", true);
