@@ -69,7 +69,7 @@ public class SkeleController : MonoBehaviour
         }
         else
         {
-            Debug.Log(player1.gameObject.transform.position);
+            //Debug.Log(player1.gameObject.transform.position);
             if (Vector3.Distance(this.transform.position, player1.gameObject.transform.position) <= Vector3.Distance(this.transform.position, player2.gameObject.transform.position))
             {
                 if (!player1.isDead)
