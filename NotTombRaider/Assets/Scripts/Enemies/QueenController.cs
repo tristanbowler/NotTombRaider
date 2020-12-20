@@ -92,6 +92,26 @@ public class QueenController : MonoBehaviour
 
         }
     }
+
+    private void CheckRespawn()
+    {
+        if ((Vector3.Distance(this.transform.position, targetPlayer.transform.position) > attackRange) && attackAvailable)
+        {
+            int rand = Random.Range(0, 3);
+            if (rand == 1)
+            {
+                //machete.Swing();
+                //animator.SetBool("isWalk", false);
+                animator.SetBool("isAttack", true);
+
+                attackAvailable = false;
+                StartCoroutine(AttackCoolDown());
+                //agent.isStopped = true;
+                //agent.enabled = false;
+            }
+
+        }
+    }
     // Update is called once per frame
     void Update()
     {
