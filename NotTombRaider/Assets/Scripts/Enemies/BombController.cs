@@ -21,13 +21,17 @@ public class BombController : MonoBehaviour
 
     public void Throw(Transform target)
     {
-        //this.transform.LookAt(target);
+        this.transform.LookAt(target);
         Debug.Log("Target "+target.position);
         this.transform.parent = null;
         Debug.Log("Parent " + this.transform.parent);
-        Vector3 difference = target.position - this.transform.position;
+        Vector3 tempTarget = target.position;
+        tempTarget.y = parentObject.transform.position.y;
+        Vector3 tempPos = this.transform.position;
+        tempPos.y = parentObject.transform.position.y;
+        Vector3 difference = tempTarget - tempPos;
         //difference = difference.normalized;
-        this.GetComponent<Rigidbody>().AddForce(difference * force);
+        this.GetComponent<Rigidbody>().AddForce(difference.normalized * force);
         thrown = true;
         StartCoroutine(RecallBomb());
     }
@@ -56,6 +60,7 @@ public class BombController : MonoBehaviour
         if (!thrown)
         {
             this.transform.localPosition = startPosition;
+            this.transform.localRotation = Quaternion.identity;
         }
         else
         {

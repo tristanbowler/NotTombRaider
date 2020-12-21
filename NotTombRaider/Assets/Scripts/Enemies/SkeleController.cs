@@ -116,11 +116,11 @@ public class SkeleController : MonoBehaviour
         
         if(targetPlayer == player1.gameObject)
         {
-            Debug.Log("Player 1 is target");
+           // Debug.Log("Player 1 is target");
         }
         else if(targetPlayer == player2.gameObject)
         {
-            Debug.Log("Player 2 is target");
+            //Debug.Log("Player 2 is target");
         }
         else
         {

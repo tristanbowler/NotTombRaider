@@ -190,7 +190,7 @@ public class QueenController : MonoBehaviour
 
     private void CheckRespawn()
     {
-        GetTarget(true);
+        targetPlayer = GetTarget(true);
         if ((Vector3.Distance(this.transform.position, targetPlayer.transform.position) > attackRange) && attackAvailable && respawnAvailable && !spawning)
         {
             
