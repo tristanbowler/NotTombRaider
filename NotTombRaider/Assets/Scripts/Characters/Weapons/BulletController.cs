@@ -7,6 +7,7 @@ public class BulletController : MonoBehaviour
     // Start is called before the first frame update
     public Vector3 startPosition;
     public Quaternion startRotation;
+    public GameObject parentObject;
     public GunController gun;
     public Damage damage;
 
@@ -14,7 +15,7 @@ public class BulletController : MonoBehaviour
     // Start is called before the first frame update
 
 
-    public void Line()
+    /*public void Line()
     {
         LineRenderer lr = GetComponent<LineRenderer>();
         lr.enabled = true;
@@ -24,7 +25,7 @@ public class BulletController : MonoBehaviour
         lr.SetPosition(1, this.transform.position);
        // StartCoroutine(Die());
 
-    }
+    }*/
 
    
 
@@ -66,7 +67,9 @@ public class BulletController : MonoBehaviour
         }
         this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         Debug.Log("Gun " + gun.gameObject.transform.position);
-        this.transform.position = gun.gameObject.transform.position;
+        transform.parent = parentObject.transform;
+        transform.localPosition = startPosition;
+        transform.localRotation = startRotation;
         Debug.Log("Here: " + transform.position);
         gun.Reload(this.gameObject);
     }

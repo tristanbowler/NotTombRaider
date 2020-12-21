@@ -6,6 +6,7 @@ public class GunController : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject bulletPrefab;
+    public GameObject parentObject;
     public List<GameObject> fired;
     public List<GameObject> reload;
     public int clipSize;
@@ -14,15 +15,19 @@ public class GunController : MonoBehaviour
     public bool isPlayerWeapon;
     public GameObject player;
     public GameObject fireParticles;
+    public Vector3 bulletRotation;
 
     void Start()
     {
         for(int i = 0; i<clipSize; i++)
         {
-            GameObject bullet = Instantiate(bulletPrefab, this.transform.position, this.transform.rotation, this.transform);
+            GameObject bullet = Instantiate(bulletPrefab, parentObject.transform.position, parentObject.transform.rotation, parentObject.transform);
+            bullet.transform.localRotation = Quaternion.Euler(bulletRotation);
+            bullet.GetComponent<BulletController>().parentObject = this.parentObject;
             reload.Add(bullet);
-            bullet.GetComponent<BulletController>().startPosition = this.transform.position;
-            bullet.GetComponent<BulletController>().startRotation = this.transform.rotation;
+            bullet.GetComponent<BulletController>().startPosition = bullet.transform.position;
+            
+            bullet.GetComponent<BulletController>().startRotation = bullet.transform.localRotation;
             bullet.GetComponent<BulletController>().gun = this;
             bullet.SetActive(false);
         }
@@ -46,8 +51,9 @@ public class GunController : MonoBehaviour
             fired.Add(bullet);
             reload.Remove(bullet);
             bullet.SetActive(true);
-            bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward.normalized* bulletForce);
-            bullet.GetComponent<BulletController>().Line();
+            bullet.transform.parent = null; 
+            
+            bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward*bulletForce);
             StartCoroutine(Die(bullet.gameObject));
             
         }
@@ -64,8 +70,9 @@ public class GunController : MonoBehaviour
     {
         fired.Remove(bullet);
         reload.Add(bullet);
-        //bullet.transform.localPosition = this.transform.position;
-        //bullet.transform.localRotation = this.transform.rotation;
+        Debug.Log("Parent OBJ: " + parentObject.name);
+        
+        Debug.Log("Parent: " + bullet.transform.parent);
         bullet.SetActive(false);
     }
 

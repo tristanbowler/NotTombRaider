@@ -11,7 +11,6 @@ public class BombController : MonoBehaviour
     public float force;
     public bool thrown;
     public float endSize;
-    public Vector3 startScale = new Vector3(0.1f, 0.1f, 0.1f);
 
     private void Awake()
     {
