@@ -488,7 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a9b36391fb7d34c968364dea186af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Wait: 0
+  Wait: 1
   start: 0
 --- !u!1101 &8476197717713410620
 AnimatorStateTransition:

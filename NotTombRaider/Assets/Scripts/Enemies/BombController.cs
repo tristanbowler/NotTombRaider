@@ -10,6 +10,8 @@ public class BombController : MonoBehaviour
     public Damage damage;
     public float force;
     public bool thrown;
+    public float endSize;
+    public Vector3 startScale = new Vector3(0.1f, 0.1f, 0.1f);
 
     private void Awake()
     {
@@ -20,11 +22,13 @@ public class BombController : MonoBehaviour
 
     public void Throw(Transform target)
     {
-        this.transform.LookAt(target);
+        //this.transform.LookAt(target);
         Debug.Log("Target "+target.position);
         this.transform.parent = null;
         Debug.Log("Parent " + this.transform.parent);
-        this.GetComponent<Rigidbody>().AddForce(this.transform.forward.normalized * force);
+        Vector3 difference = target.position - this.transform.position;
+        //difference = difference.normalized;
+        this.GetComponent<Rigidbody>().AddForce(difference * force);
         thrown = true;
         StartCoroutine(RecallBomb());
     }
@@ -54,6 +58,11 @@ public class BombController : MonoBehaviour
         {
             this.transform.localPosition = startPosition;
         }
+        else
+        {
+            //float increment = endSize / speed;
+            //this.transform.localScale = this.transform.localScale + new Vector3(1, 1, 1) * increment;
+        }
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -61,7 +70,7 @@ public class BombController : MonoBehaviour
         if(collision.gameObject.CompareTag("Player1") || collision.gameObject.CompareTag("Player2"))
         {
             collision.gameObject.GetComponent<HealthContorller>().DoDamage(damage.damage);
-            //Reload();
+            Reload();
         }
         
 

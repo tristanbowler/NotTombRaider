@@ -6,6 +6,7 @@ public class QueenController : MonoBehaviour
 {
     public Transform[] spawnPoints;
     private GameObject targetPlayer;
+    private Vector3 targetPosition;
     private HealthContorller player1;
     private HealthContorller player2;
     private Animator animator;
@@ -33,38 +34,95 @@ public class QueenController : MonoBehaviour
     }
 
 
-    private void GetTarget()
+    private GameObject GetTarget(bool near)
     {
-        if (Vector3.Distance(this.transform.position, player1.gameObject.transform.position) <= Vector3.Distance(this.transform.position, player2.gameObject.transform.position))
+        GameObject target;
+
+        if (near)
         {
-            if (!player1.isDead)
+            if (Vector3.Distance(this.transform.position, player1.gameObject.transform.position) <= Vector3.Distance(this.transform.position, player2.gameObject.transform.position))
             {
-                targetPlayer = player1.gameObject;
-            }
-            else if (!player2.isDead)
-            {
-                targetPlayer = player2.gameObject;
+                if (!player1.isDead)
+                {
+                    target = player1.gameObject;
+                }
+                else if (!player2.isDead)
+                {
+                    target = player2.gameObject;
+                }
+                else
+                {
+                    target= null;
+                }
             }
             else
             {
-                targetPlayer = null;
+                if (!player2.isDead)
+                {
+                    target = player2.gameObject;
+                }
+                else if (!player1.isDead)
+                {
+                    target = player1.gameObject;
+                }
+                else
+                {
+                    target = null;
+                }
             }
         }
         else
         {
-            if (!player2.isDead)
+            if (Vector3.Distance(this.transform.position, player1.gameObject.transform.position) < Vector3.Distance(this.transform.position, player2.gameObject.transform.position))
             {
-                targetPlayer = player2.gameObject;
-            }
-            else if (!player1.isDead)
-            {
-                targetPlayer = player1.gameObject;
+                if (!player2.isDead)
+                {
+                    target = player2.gameObject;
+                }
+                else if (!player1.isDead)
+                {
+                    target = player1.gameObject;
+                }
+                else
+                {
+                    target = null;
+                }
             }
             else
             {
-                targetPlayer = null;
+                if (!player1.isDead)
+                {
+                    target = player1.gameObject;
+                }
+                else if (!player2.isDead)
+                {
+                    target = player2.gameObject;
+                }
+                else
+                {
+                    target = null;
+                }
             }
         }
+        return target;
+    }
+
+    private void GetLocation()
+    {
+        GameObject target = GetTarget(false);
+        Vector3 closestPoisition = Vector3.zero;
+        float distance = float.MaxValue;
+        foreach(Transform p in spawnPoints)
+        {
+            float temp = Vector3.Distance(target.transform.position, p.position);
+            if(temp < distance && Vector3.Distance(this.transform.position, p.position) > 2)
+            {
+                distance = temp;
+                closestPoisition = p.position;
+            }
+        }
+
+        targetPosition = closestPoisition;
     }
 
     public void StartBomb()
@@ -77,6 +135,7 @@ public class QueenController : MonoBehaviour
 
         yield return new WaitForSeconds(attacktime);
         Debug.Log("Throwing");
+        //targetPlayer = GetTarget(true);
         bomb.GetComponent<BombController>().Throw(targetPlayer.transform);
         
         attacking = false;
@@ -92,6 +151,9 @@ public class QueenController : MonoBehaviour
     private IEnumerator RespawnCoolDown()
     {
         yield return new WaitForSeconds(respawnTime/2.0f);
+        GetLocation();
+        this.transform.position = targetPosition;
+        this.transform.LookAt(targetPlayer.transform);
         particles.EndSpawn();
         yield return new WaitForSeconds(respawnTime/2.0f);
         //attackAvailable = true;
@@ -113,8 +175,8 @@ public class QueenController : MonoBehaviour
                 Debug.Log("StartAttack");
                 animator.SetBool("isAttack", true);
                 attackAvailable = false;
-                
-                GetTarget();
+                this.transform.LookAt(targetPlayer.transform);
+                //targetPlayer = GetTarget(true);
                 if (targetPlayer != null)
                 {
                     //transform.LookAt(targetPlayer.transform);
@@ -128,8 +190,10 @@ public class QueenController : MonoBehaviour
 
     private void CheckRespawn()
     {
+        GetTarget(true);
         if ((Vector3.Distance(this.transform.position, targetPlayer.transform.position) > attackRange) && attackAvailable && respawnAvailable && !spawning)
         {
+            
             Debug.Log("Respawning");
             particles.Spawn();
             //attackAvailable = false;
@@ -141,8 +205,9 @@ public class QueenController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        targetPlayer = GetTarget(true);
+        CheckRespawn();
         CheckAttack();
-        //CheckRespawn();
+        
     }
 }
