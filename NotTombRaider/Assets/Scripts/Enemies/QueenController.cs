@@ -11,9 +11,15 @@ public class QueenController : MonoBehaviour
     private Animator animator;
     private EnemyParticleController particles;
     public float attackCoolDownTime = 2;
+    public float attacktime = 3;
+    public float respawnCoolDownTime = 10;
+    public float respawnTime = 6;
     private bool attackAvailable = true;
+    private bool respawnAvailable = true;
+    private bool spawning = false;
     public GameObject bomb;
     private int attackRange;
+    private bool attacking = false;
 
     // Start is called before the first frame update
     void Start()
@@ -43,8 +49,6 @@ public class QueenController : MonoBehaviour
             {
                 targetPlayer = null;
             }
-
-            //Debug.Log("Closest Player: player 1");
         }
         else
         {
@@ -63,58 +67,82 @@ public class QueenController : MonoBehaviour
         }
     }
 
+    public void StartBomb()
+    {
+        StartCoroutine(AttackCoolDown());
+    }
+
     private IEnumerator AttackCoolDown()
     {
+
+        yield return new WaitForSeconds(attacktime);
+        Debug.Log("Throwing");
+        bomb.GetComponent<BombController>().Throw(targetPlayer.transform);
+        
+        attacking = false;
         yield return new WaitForSeconds(attackCoolDownTime);
         attackAvailable = true;
-        if (targetPlayer != null)
-        {
-            //animator.SetBool("isWalk", true);
-        }
+        respawnAvailable = true;
+        //Debug.Log("Attack avaliable");
+
+
+
+    }
+
+    private IEnumerator RespawnCoolDown()
+    {
+        yield return new WaitForSeconds(respawnTime/2.0f);
+        particles.EndSpawn();
+        yield return new WaitForSeconds(respawnTime/2.0f);
+        //attackAvailable = true;
+        spawning = false;
+        yield return new WaitForSeconds(respawnCoolDownTime);
+        particles.EndSpawn();
+        respawnAvailable = true;
+
+
     }
 
     private void CheckAttack()
     {
-        if ((Vector3.Distance(this.transform.position, targetPlayer.transform.position) > attackRange ) && attackAvailable)
+        if (attackAvailable && !spawning && !attacking)
         {
-            int rand = Random.Range(0, 3);
-            if(rand == 1)
+            int rand = Random.Range(0, 200);
+            //if(rand == 1)
             {
-                //machete.Swing();
-                //animator.SetBool("isWalk", false);
+                Debug.Log("StartAttack");
                 animator.SetBool("isAttack", true);
-
                 attackAvailable = false;
-                StartCoroutine(AttackCoolDown());
-                //agent.isStopped = true;
-                //agent.enabled = false;
+                
+                GetTarget();
+                if (targetPlayer != null)
+                {
+                    //transform.LookAt(targetPlayer.transform);
+                    bomb.SetActive(true);
+                    attacking = true;
+                    
+                }
             }
-
         }
     }
 
     private void CheckRespawn()
     {
-        if ((Vector3.Distance(this.transform.position, targetPlayer.transform.position) > attackRange) && attackAvailable)
+        if ((Vector3.Distance(this.transform.position, targetPlayer.transform.position) > attackRange) && attackAvailable && respawnAvailable && !spawning)
         {
-            int rand = Random.Range(0, 3);
-            if (rand == 1)
-            {
-                //machete.Swing();
-                //animator.SetBool("isWalk", false);
-                animator.SetBool("isAttack", true);
-
-                attackAvailable = false;
-                StartCoroutine(AttackCoolDown());
-                //agent.isStopped = true;
-                //agent.enabled = false;
-            }
-
+            Debug.Log("Respawning");
+            particles.Spawn();
+            //attackAvailable = false;
+            respawnAvailable = false;
+            spawning = true;
+            StartCoroutine(RespawnCoolDown());
         }
     }
     // Update is called once per frame
     void Update()
     {
         
+        CheckAttack();
+        //CheckRespawn();
     }
 }

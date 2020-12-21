@@ -12,6 +12,16 @@ public class EnemyParticleController : MonoBehaviour
         SpawnParticles.SetActive(true);
     }
 
+    public void EndSpawn()
+    {
+        SpawnParticles.SetActive(false);
+    }
+
+    public void EndDeath()
+    {
+        DeathParticles.SetActive(false);
+    }
+
     public void Death()
     {
         DeathParticles.SetActive(true);
