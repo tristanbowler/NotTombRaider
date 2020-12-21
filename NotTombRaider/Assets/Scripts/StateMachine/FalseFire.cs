@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class FalseFire : StateMachineBehaviour
 {
-    private Vector3 startRotation; 
+    private Vector3 startRotation;
+    public bool rotate = true;
+    public float offset = 90f;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetBool("isAttack", false);
-        startRotation = animator.gameObject.transform.rotation.eulerAngles;
-        Debug.Log(animator.gameObject.name + " Start: " + startRotation);
-        startRotation.y = startRotation.y + 90;
-        animator.gameObject.transform.rotation = Quaternion.Euler(startRotation);
+        if (rotate)
+        {
+            startRotation = animator.gameObject.transform.rotation.eulerAngles;
+            Debug.Log(animator.gameObject.name + " Start: " + startRotation);
+            startRotation.y = startRotation.y + offset;
+            animator.gameObject.transform.rotation = Quaternion.Euler(startRotation);
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -25,10 +30,12 @@ public class FalseFire : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
-        startRotation.y = startRotation.y - 90;
-        animator.gameObject.transform.rotation = Quaternion.Euler(startRotation);
-        Debug.Log("End: " + animator.gameObject.transform.rotation);
+        if (rotate)
+        {
+            startRotation.y = startRotation.y - offset;
+            animator.gameObject.transform.rotation = Quaternion.Euler(startRotation);
+            Debug.Log("End: " + animator.gameObject.transform.rotation);
+        }
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

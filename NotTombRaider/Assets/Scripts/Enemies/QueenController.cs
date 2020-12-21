@@ -134,7 +134,7 @@ public class QueenController : MonoBehaviour
     {
 
         yield return new WaitForSeconds(attacktime);
-        Debug.Log("Throwing");
+        //Debug.Log("Throwing");
         //targetPlayer = GetTarget(true);
         bomb.GetComponent<BombController>().Throw(targetPlayer.transform);
         
@@ -172,7 +172,7 @@ public class QueenController : MonoBehaviour
             int rand = Random.Range(0, 200);
             //if(rand == 1)
             {
-                Debug.Log("StartAttack");
+                //Debug.Log("StartAttack");
                 animator.SetBool("isAttack", true);
                 attackAvailable = false;
                 this.transform.LookAt(targetPlayer.transform);
@@ -194,7 +194,7 @@ public class QueenController : MonoBehaviour
         if ((Vector3.Distance(this.transform.position, targetPlayer.transform.position) > attackRange) && attackAvailable && respawnAvailable && !spawning)
         {
             
-            Debug.Log("Respawning");
+            //Debug.Log("Respawning");
             particles.Spawn();
             //attackAvailable = false;
             respawnAvailable = false;

@@ -22,9 +22,9 @@ public class BombController : MonoBehaviour
     public void Throw(Transform target)
     {
         this.transform.LookAt(target);
-        Debug.Log("Target "+target.position);
+        //Debug.Log("Target "+target.position);
         this.transform.parent = null;
-        Debug.Log("Parent " + this.transform.parent);
+        //Debug.Log("Parent " + this.transform.parent);
         Vector3 tempTarget = target.position;
         tempTarget.y = parentObject.transform.position.y;
         Vector3 tempPos = this.transform.position;
@@ -39,15 +39,15 @@ public class BombController : MonoBehaviour
     IEnumerator RecallBomb()
     {
         yield return new WaitForSeconds(1);
-        Debug.Log("Recalling");
+        //Debug.Log("Recalling");
         Reload();
     }
 
     public void Reload()
     {
-        Debug.Log("Reloading");
+        //Debug.Log("Reloading");
         this.transform.parent = parentObject.transform;
-        Debug.Log("Parent " + this.transform.parent);
+        //Debug.Log("Parent " + this.transform.parent);
         this.transform.localPosition = startPosition;
         this.transform.localRotation = Quaternion.Euler(Vector3.zero);
         thrown = false;
