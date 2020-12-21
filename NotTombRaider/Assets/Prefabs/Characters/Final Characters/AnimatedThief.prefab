@@ -10384,6 +10384,7 @@ MonoBehaviour:
   animator: {fileID: 1020928054610143222}
   respawnParticles: {fileID: 1020928054730098921}
   deathParticles: {fileID: 2474797605305513141}
+  isQueen: 0
 --- !u!95 &1020928054610143222
 Animator:
   serializedVersion: 3

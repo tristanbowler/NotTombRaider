@@ -17,6 +17,8 @@ public class LivesController : MonoBehaviour
     public int maxPotions = 10;
     public int HeartIndex = 0;
     public GameObject gameOverScreen;
+    public bool relicFound = false;
+    public GameObject winScreen;
 
     private void Start()
     {

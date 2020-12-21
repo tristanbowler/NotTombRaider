@@ -21738,6 +21738,7 @@ MonoBehaviour:
   animator: {fileID: 7140013415147667754}
   respawnParticles: {fileID: 3867612385870719608}
   deathParticles: {fileID: 3357809231399624616}
+  isQueen: 0
 --- !u!114 &3638057437268924074
 MonoBehaviour:
   m_ObjectHideFlags: 0

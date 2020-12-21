@@ -23,6 +23,7 @@ public class HealthContorller : MonoBehaviour
     public Animator animator;
     public GameObject respawnParticles;
     public GameObject deathParticles;
+    public bool isQueen = false;
     
     // Start is called before the first frame update
     void Start()
@@ -49,7 +50,12 @@ public class HealthContorller : MonoBehaviour
                 animator.SetBool("isWalk", false);
                 animator.SetBool("isDeath", true);
                 this.gameObject.GetComponent<EnemyParticleController>().Death();
-                
+                if (isQueen)
+                {
+                    GameObject Mask = this.gameObject.GetComponent<QueenController>().Mask;
+                    Mask.transform.parent = null;
+                    Mask.GetComponent<MaskController>().enabled = true;
+                }
             }
             else
             {

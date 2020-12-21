@@ -19,6 +19,7 @@ TagManager:
   - EnemySpot
   - Hallway
   - EnemyWeapon
+  - Exit
   layers:
   - Default
   - TransparentFX
@@ -38,7 +39,7 @@ TagManager:
   - Enemy
   - Traps
   - Floor
-  - 
+  - Relics
   - 
   - 
   - 

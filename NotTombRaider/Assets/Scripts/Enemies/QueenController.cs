@@ -22,6 +22,7 @@ public class QueenController : MonoBehaviour
     private int attackRange;
     private bool attacking = false;
     public GameObject title;
+    public GameObject Mask;
 
     // Start is called before the first frame update
     void Start()
