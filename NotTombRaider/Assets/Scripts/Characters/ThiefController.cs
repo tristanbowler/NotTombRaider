@@ -26,6 +26,7 @@ public class ThiefController : MonoBehaviour
         rigidBody = this.GetComponent<Rigidbody>();
         animator = this.gameObject.GetComponent<Animator>();
         healthController = this.GetComponent<HealthContorller>();
+        healthController.UIBar = GameObject.FindGameObjectWithTag("ThiefBar");
     }
 
     // Update is called once per frame
@@ -55,7 +56,7 @@ public class ThiefController : MonoBehaviour
 
     private void CheckReSpawn()
     {
-        if (Input.GetKeyDown(KeyCode.Y) && healthController.isDead)
+        if ((Input.GetKeyDown(KeyCode.Z) || controller.CheckY()) && healthController.isDead)
         {
             healthController.Respawn();
         }
@@ -63,7 +64,7 @@ public class ThiefController : MonoBehaviour
 
     private void CheckMele()
     {
-        if(Input.GetKey(KeyCode.E) && !healthController.isDead && !isTorch && !isMele)
+        if((Input.GetKey(KeyCode.E) || controller.CheckX()) && !healthController.isDead && !isTorch && !isMele)
         {
             isMele = true;
             meleCollider.enabled = true;
@@ -74,7 +75,7 @@ public class ThiefController : MonoBehaviour
 
     private void CheckTorch()
     {
-        if (Input.GetKey(KeyCode.Q) && !healthController.isDead && !isTorch && !isMele)
+        if ((Input.GetKey(KeyCode.Q) || controller.CheckB()) && !healthController.isDead && !isTorch && !isMele)
         {
             isTorch = true;
             torchCollider.enabled = true;
@@ -157,7 +158,7 @@ public class ThiefController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Collision with " + collision.gameObject.name);
+            //Debug.Log("Collision with " + collision.gameObject.name);
             //collisionDetected = true;
             //Vector3 direction = transform.position - collision.collider.transform.position;
             //direction.Normalize();

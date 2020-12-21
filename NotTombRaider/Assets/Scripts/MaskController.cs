@@ -14,9 +14,20 @@ public class MaskController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag("Player2"))
+        if (other.gameObject.CompareTag("Player1"))
         {
-            if (Input.GetKeyDown(KeyCode.Alpha3) )
+            if (Input.GetKeyDown(KeyCode.X) || other.GetComponent<ThiefController>().controller.CheckA())
+            {
+                icon.SetActive(true);
+                Exit.SetActive(true);
+                Camera.main.gameObject.GetComponent<LivesController>().relicFound = true;
+                this.gameObject.SetActive(false);
+            }
+        }
+
+        else if (other.gameObject.CompareTag("Player2"))
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha3) || other.GetComponent<FighterController>().controller.CheckA())
             {
                 icon.SetActive(true);
                 Exit.SetActive(true);

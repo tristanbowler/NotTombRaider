@@ -21,9 +21,11 @@ public class FighterController : MonoBehaviour
     public bool shooting;
     public bool slashing;
     public HealthContorller healthController;
+    
     void Start()
     {
         rigidBody = this.GetComponent<Rigidbody>();
+        healthController.UIBar = GameObject.FindGameObjectWithTag("FighterBar");
     }
 
     // Update is called once per frame
@@ -37,7 +39,7 @@ public class FighterController : MonoBehaviour
 
     private void CheckReSpawn()
     {
-        if(Input.GetKeyDown(KeyCode.Y) && healthController.isDead)
+        if((Input.GetKeyDown(KeyCode.Alpha0) || controller.CheckY()) && healthController.isDead)
         {
             healthController.Respawn();
         }
@@ -64,7 +66,7 @@ public class FighterController : MonoBehaviour
     }
     private void CheckMachete()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && !slashing && !shooting && !healthController.isDead)
+        if ((Input.GetKeyDown(KeyCode.Alpha1) || controller.CheckB())&& !slashing && !shooting && !healthController.isDead)
         {
             slashing = true;
             animator.SetBool("isAttack", true);
@@ -75,7 +77,7 @@ public class FighterController : MonoBehaviour
 
     private void CheckGun()
     {
-        if (Input.GetKey(KeyCode.Space) && !slashing && !shooting)
+        if ((Input.GetKey(KeyCode.Alpha2) || controller.CheckX()) && !slashing && !shooting)
         {
             shooting = true;
             animator.SetBool("isShoot", true);

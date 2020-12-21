@@ -25328,11 +25328,12 @@ MonoBehaviour:
   TotalHealth: 20
   HealthPoints: 20
   percent: 0
-  UIBar: {fileID: 0}
+  UIBar: {fileID: 3795669250783619459}
   StartWidth: 0
   animator: {fileID: 0}
-  respawnParticles: {fileID: 0}
-  deathParticles: {fileID: 0}
+  respawnParticles: {fileID: 3795669250593272702}
+  deathParticles: {fileID: 3795669250226125154}
+  isQueen: 0
 --- !u!195 &3795669251258145137
 NavMeshAgent:
   m_ObjectHideFlags: 0

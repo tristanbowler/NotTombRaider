@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using XInputDotNetPure;
 
 // Hinput class handling the visuals of a gamepad in the Example Scene.
 public class GamepadController : MonoBehaviour
@@ -66,7 +67,42 @@ public class GamepadController : MonoBehaviour
         
     }
 
-   
+    public bool CheckA()
+    {
+        if (gamepad.A.simplePress.pressed)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public bool CheckB()
+    {
+        if (gamepad.B.simplePress.pressed)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public bool CheckX()
+    {
+        if (gamepad.X.simplePress.pressed)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public bool CheckY()
+    {
+        if (gamepad.Y.simplePress.pressed)
+        {
+            return true;
+        }
+        return false;
+    }
+
 
     private void CheckAllEvents()
     {

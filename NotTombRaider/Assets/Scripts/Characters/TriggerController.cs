@@ -24,7 +24,11 @@ public class TriggerController : MonoBehaviour
             {
                 other.GetComponent<SoldierController>().enabled = true;
             }
-            
+            if (other.GetComponent<QueenController>())
+            {
+                other.GetComponent<QueenController>().enabled = true;
+                other.GetComponent<HideAndShow>().Show();
+            }
         }
     }
 }

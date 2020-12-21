@@ -15,9 +15,17 @@ public class ExtraLifeController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag("Player2"))
+        if(other.gameObject.CompareTag("Player1") )
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1) && livesController.currentLives < livesController.maxLives)
+            if ((Input.GetKeyDown(KeyCode.X) || other.GetComponent<ThiefController>().controller.CheckA())&& livesController.currentLives < livesController.maxLives)
+            {
+                livesController.AddLife();
+                this.gameObject.SetActive(false);
+            }
+        }
+        else if (other.gameObject.CompareTag("Player2"))
+        {
+            if ((Input.GetKeyDown(KeyCode.Alpha3) || other.GetComponent<FighterController>().controller.CheckA()) && livesController.currentLives < livesController.maxLives)
             {
                 livesController.AddLife();
                 this.gameObject.SetActive(false);
