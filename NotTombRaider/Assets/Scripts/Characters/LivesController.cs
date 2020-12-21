@@ -15,35 +15,35 @@ public class LivesController : MonoBehaviour
     public int PoitionHP;
     public List<GameObject> hearts;
     public int maxPotions = 10;
-    public int HeartIndex = -1;
+    public int HeartIndex = 0;
     public GameObject gameOverScreen;
 
     private void Start()
     {
         Brain = GameObject.FindGameObjectWithTag("Player1").GetComponent<HealthContorller>();
         Brawn = GameObject.FindGameObjectWithTag("Player2").GetComponent<HealthContorller>();
-        hearts = new List<GameObject>();
-        for(int i=0; i<startLives; i++)
-        {
-            AddLife();
-        }
+
+        //for(int i=0; i<startLives; i++)
+        //{
+        //    AddLife();
+        //}
+        hearts[HeartIndex].SetActive(true);
         gameOverScreen.SetActive(false);
+        currentLives = 5;
     }
 
     public void AddLife()
     {
-        if(currentLives < maxLives)
+        if (currentLives < maxLives)
         {
             currentLives++;
             //GameObject heart = Instantiate(livesPrefab, livesPanel.transform);
             //hearts.Add(heart);
-            if(HeartIndex >= 0)
-            {
-                hearts[HeartIndex].SetActive(false);
-            }
-            HeartIndex++;
+
+            hearts[HeartIndex].SetActive(false);
+
+            HeartIndex--;
             hearts[HeartIndex].SetActive(true);
-            
         }
     }
 
@@ -51,18 +51,17 @@ public class LivesController : MonoBehaviour
     {
         if (currentLives > 0)
         {
+            Debug.Log("RemoveLife");
             currentLives--;
-            Destroy(hearts[hearts.Count -1]);
-            hearts.Remove(hearts[hearts.Count - 1]);
             hearts[HeartIndex].SetActive(false);
-            HeartIndex--;
+            HeartIndex++;
             hearts[HeartIndex].SetActive(true);
         }
     }
 
     private void Update()
     {
-        if(Brain.isDead && Brawn.isDead && currentLives == 0)
+        if (Brain.isDead && Brawn.isDead && currentLives == 0)
         {
             gameOverScreen.SetActive(true);
             if (Input.GetKeyDown(KeyCode.Return))

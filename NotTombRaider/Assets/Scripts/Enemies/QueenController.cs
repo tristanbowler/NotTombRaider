@@ -21,6 +21,7 @@ public class QueenController : MonoBehaviour
     public GameObject bomb;
     private int attackRange;
     private bool attacking = false;
+    public GameObject title;
 
     // Start is called before the first frame update
     void Start()
@@ -30,10 +31,15 @@ public class QueenController : MonoBehaviour
         particles.Spawn();
         player1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<HealthContorller>();
         player2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<HealthContorller>();
-        
+        title.SetActive(true);
+        StartCoroutine(DeactivateTitle());
     }
 
-
+    IEnumerator DeactivateTitle()
+    {
+        yield return new WaitForSeconds(10);
+        title.SetActive(false);
+    }
     private GameObject GetTarget(bool near)
     {
         GameObject target;
@@ -144,8 +150,6 @@ public class QueenController : MonoBehaviour
         respawnAvailable = true;
         //Debug.Log("Attack avaliable");
 
-
-
     }
 
     private IEnumerator RespawnCoolDown()
@@ -175,10 +179,11 @@ public class QueenController : MonoBehaviour
                 //Debug.Log("StartAttack");
                 animator.SetBool("isAttack", true);
                 attackAvailable = false;
-                this.transform.LookAt(targetPlayer.transform);
+                
                 //targetPlayer = GetTarget(true);
                 if (targetPlayer != null)
                 {
+                    this.transform.LookAt(targetPlayer.transform);
                     //transform.LookAt(targetPlayer.transform);
                     bomb.SetActive(true);
                     attacking = true;
@@ -191,15 +196,18 @@ public class QueenController : MonoBehaviour
     private void CheckRespawn()
     {
         targetPlayer = GetTarget(true);
-        if ((Vector3.Distance(this.transform.position, targetPlayer.transform.position) > attackRange) && attackAvailable && respawnAvailable && !spawning)
+        if (targetPlayer != null)
         {
-            
-            //Debug.Log("Respawning");
-            particles.Spawn();
-            //attackAvailable = false;
-            respawnAvailable = false;
-            spawning = true;
-            StartCoroutine(RespawnCoolDown());
+            if ((Vector3.Distance(this.transform.position, targetPlayer.transform.position) > attackRange) && attackAvailable && respawnAvailable && !spawning)
+            {
+
+                //Debug.Log("Respawning");
+                particles.Spawn();
+                //attackAvailable = false;
+                respawnAvailable = false;
+                spawning = true;
+                StartCoroutine(RespawnCoolDown());
+            }
         }
     }
     // Update is called once per frame

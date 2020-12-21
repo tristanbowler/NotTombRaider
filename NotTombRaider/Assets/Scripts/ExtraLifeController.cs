@@ -17,7 +17,7 @@ public class ExtraLifeController : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag("Player2"))
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            if (Input.GetKeyDown(KeyCode.Alpha1) && livesController.currentLives < livesController.maxLives)
             {
                 livesController.AddLife();
                 this.gameObject.SetActive(false);

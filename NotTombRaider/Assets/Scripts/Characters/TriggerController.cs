@@ -15,8 +15,16 @@ public class TriggerController : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            other.GetComponent<SkeleController>().enabled = true;
-            other.GetComponent<HideAndShow>().Show();
+            if (other.GetComponent<SkeleController>())
+            {
+                other.GetComponent<SkeleController>().enabled = true;
+                other.GetComponent<HideAndShow>().Show();
+            }
+            if (other.GetComponent<SoldierController>())
+            {
+                other.GetComponent<SoldierController>().enabled = true;
+            }
+            
         }
     }
 }

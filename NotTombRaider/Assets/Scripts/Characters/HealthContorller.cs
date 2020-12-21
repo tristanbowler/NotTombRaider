@@ -49,7 +49,7 @@ public class HealthContorller : MonoBehaviour
                 animator.SetBool("isWalk", false);
                 animator.SetBool("isDeath", true);
                 this.gameObject.GetComponent<EnemyParticleController>().Death();
-                //this.gameObject.SetActive(false);
+                
             }
             else
             {
@@ -61,7 +61,9 @@ public class HealthContorller : MonoBehaviour
 
     public void Heal(int health)
     {
+        Debug.Log("Heal THY self with "+ health);
         HealthPoints += health;
+        Debug.Log("Health " + HealthPoints);
         if(HealthPoints > TotalHealth)
         {
             HealthPoints = TotalHealth;
@@ -89,6 +91,7 @@ public class HealthContorller : MonoBehaviour
 
     public void Respawn()
     {
+        Debug.Log("Respawning");
         livesController.RemoveLife();
         HealthPoints = TotalHealth;
         UpdateUI();

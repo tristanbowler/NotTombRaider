@@ -18,7 +18,8 @@ public class HealthPotionController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag("Player2"))
         {
-            if (Input.GetKeyDown(KeyCode.Alpha2))
+            HealthContorller hc = other.GetComponent<HealthContorller>();
+            if (Input.GetKeyDown(KeyCode.Alpha2) && hc.HealthPoints < hc.TotalHealth)
             {
                 other.gameObject.GetComponent<HealthContorller>().Heal(HealthPoints);
                 this.gameObject.SetActive(false);
